@@ -25,19 +25,7 @@ __(2) Based on the taxon of interest__\
 
 ## Install kingfisher
 
-Create genomics_tutorial directory if you don't already have it.
-
-``mkdir genomics_tutorial``
-
-From now on every data files used in this tutorial will be organized under that directory. First go into that directory.
-
-``cd genomics_tutorial``
-
-Now make 'installation' directory.
-
-``mkdir installation``
-
-Go to 'installation' directory and start installing Kingfisher
+Go to 'genomics_tutorial/installation' directory and start installing Kingfisher
 
 __Kingfisher__ is a great tool made to help researchers conveniently download fastq files for the public SRA/ERA records.
 
@@ -45,11 +33,9 @@ Website: https://github.com/wwood/kingfisher-download
 
 Citation: Not published
 
+
+``cd genomics_tutorial``
 ``cd installation``
-
-I assume that you are using ububtu linux subsystem in windows 10. [(install ubuntu)](https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview).
-
-I assume that you have __git__ [(install git)](https://linuxize.com/post/how-to-install-git-on-ubuntu-18-04/), __python3.8__ [(install python 3.8)](https://phoenixnap.com/kb/how-to-install-python-3-ubuntu) and __conda__ [(install conda)](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) installed on your linux.
 
 ``git clone https://github.com/wwood/kingfisher-download``\
 ``cd kingfisher-download``\
