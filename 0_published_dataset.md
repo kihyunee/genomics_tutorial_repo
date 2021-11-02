@@ -33,10 +33,10 @@ __NCBI BioProject__ accession numbers
 - PRJEB8770 --> samples from wastewater [PRJEB8770 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB8770/)
 
 __Raw reads__ runinfo table in csv format, combined across six bioprojects; filtered to include only Klebsiella pneumoniae
-- [NCBI SRA runinfo table csv file]()
+- [NCBI SRA runinfo table csv file](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Ludden_2020/Ludden_2020_all_Kpn_SraRunInfo.csv)
 
 __Genome assemblies__ list of assembly accessions combined across six bioprojects; filtered to include only Klebsiella pneumoniae
-- [NCBI genome assembly accession list file]()
+- [NCBI genome assembly accession list file](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Ludden_2020/Ludden_2020_all_Kpn_assembly_list.txt)
 
 
 
