@@ -20,8 +20,12 @@ __NCBI BioProject__ accession numbers
 __Raw reads__ not available
 
 __Genome assemblies__ assembly accession list txt
-- (1) 2005 isolates: [NCBI assembly accession list file for 2005 isolates]()
-- (2) 2016-2017 isolates: [NCBI assembly accession list file for 2016-2017 isolates]()
+- (1) 2005 isolates: [NCBI assembly accession list file for 2005 isolates](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Royer_2021/PRJEB39260_assembly_accession_list.txt)
+- (2) 2016-2017 isolates: [NCBI assembly accession list file for 2016-2017 isolates](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Royer_2021/PRJEB35745_assembly_accession_list.txt)
+
+__Isolate metadata mapped__ to the genome assembly accessions
+- tab-delimited text file containing the table: [isolate metadata table](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Royer_2021/TableS2_isolate_metadata.txt)
+
 
 
 # Selection of dataset per session
