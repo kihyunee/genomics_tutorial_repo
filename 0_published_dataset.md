@@ -2,6 +2,18 @@
 # Individual dataset description
 
 
+## Gorrie et al. 2017 K. pneumoniae ICU infection isolates and the patient rectal carriage isolates compared
+
+Mostly only Illumina
+2 isolates did both ONT MinION and Illumina
+
+
+### Citation
+
+PRJEB6891
+PRJNA351909
+
+
 
 ## Ludden et al. 2020 K. pneumoniae One Health surveillance including the isolates from BSI, patient stool, livestock fams, meat, hospital sewer and WWTP
 
