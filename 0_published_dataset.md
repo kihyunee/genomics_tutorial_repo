@@ -3,6 +3,44 @@
 
 
 
+## Ludden et al. 2020 K. pneumoniae One Health surveillance including the isolates from BSI, patient stool, livestock fams, meat, hospital sewer and WWTP
+
+### Citation
+- __A One Health Study of the Genetic Relatedness of Klebsiella pneumoniae and Their Mobile Elements in the East of England__
+- Clinical Infectious Diseases, Volume 70, Issue 2, 15 January 2020, Pages 219–226, https://doi.org/10.1093/cid/ciz174
+- Catherine Ludden\*, Danesh Moradigaravand, Dorota Jamrozy, Theodore Gouliouris, Beth Blane, Plamena Naydenova, Juan Hernandez-Garcia, Paul Wood, Nazreen Hadjirin, Milorad Radakovic, Charles Crawley, Nicholas M Brown, Mark Holmes, Julian Parkhill, Sharon J Peacock
+- Correspondence: \* London School of Hygiene & Tropical Medicine, UK; Wellcome Sanger Institute, UK
+
+### Opt for
+- *Epidemiology* session with One-Health aspect
+
+### Original WGS data description
+- Target pathogens: Various STs of Klepsiella pneumoniae from a region, in One-Health cross-sectional sampling scheme including the isolates from
+- * blood cultures and stool cultures from BSI patients at a single hospital, May 2015 - Nov 2015
+- * hospital wastewater culture, Sep 2014 - Dec 2015
+- * raw and treated wastewater at 20 municipal wastewater treatment plants, Jun 2014 - Jan 2015
+- * 10 cattle farms, 10 pig farms, 9 poultry, Aug 2014 - Apr 2015
+- Sequencing platform: Illumina HiSeq2000
+- N. isoaltes sequenced: 249
+
+### Dataset links
+__NCBI BioProject__ accession numbers
+- PRJEB18814 --> samples from patients and hospital sewer [PRJEB18814 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB18814/)
+- PRJEB19918 --> samples from patients and hospital sewer [PRJEB19918 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB19918/)
+- PRJEB8771 --> samples from livestock [PRJEB8771 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB8771/)
+- PRJEB8776 --> samples from livestock [PRJEB8776 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB8776/)
+- PRJEB8766 --> samples from wastewater [PRJEB8766 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB8766/)
+- PRJEB8770 --> samples from wastewater [PRJEB8770 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB8770/)
+
+__Raw reads__ runinfo table in csv format, combined across six bioprojects; filtered to include only Klebsiella pneumoniae
+- [NCBI SRA runinfo table csv file]()
+
+__Genome assemblies__ list of assembly accessions combined across six bioprojects; filtered to include only Klebsiella pneumoniae
+- [NCBI genome assembly accession list file]()
+
+
+
+
 ## Mounsey et al. 2021 E. coli fluoroquinolone resistant isolates surveillance in dairy farm and human UTI in the same region
 
 ### Citation
