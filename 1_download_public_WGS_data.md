@@ -48,3 +48,6 @@ Citation: Not published
 
 # Download WGS assemblies from NCBI GenBank / RefSeq assemblies
 
+## Install NCBI's command line tool _dataset_
+
+Website: https://www.ncbi.nlm.nih.gov/datasets/docs/v1/quickstarts/command-line-tools/
