@@ -47,7 +47,9 @@ Citation: Not published
 
 ``cd installation``
 
-I assume that you have __git__ [(git)](https://linuxize.com/post/how-to-install-git-on-ubuntu-18-04/) and __conda__ [(conda)](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) installed on your linux.
+I assume that you are using ububtu linux subsystem in windows 10. [(install ubuntu)](https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview).
+
+I assume that you have __git__ [(install git)](https://linuxize.com/post/how-to-install-git-on-ubuntu-18-04/), __python3.8__ [(install python 3.8)](https://phoenixnap.com/kb/how-to-install-python-3-ubuntu) and __conda__ [(install conda)](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) installed on your linux.
 
 ``git clone https://github.com/wwood/kingfisher-download``\
 ``cd kingfisher-download``\
