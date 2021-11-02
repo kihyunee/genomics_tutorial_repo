@@ -27,12 +27,12 @@ __NCBI BioProject__ accession numbers
 - PRJEB45949 --> [PRJEB45949 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB45949/) 
 
 __Raw reads__ runinfo table in csv format
-- 628 isolates: [NCBI SRA runinfo csv table]()
+- 628 isolates: [NCBI SRA runinfo csv table](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Mounsey_2021/Mounsey_2021_SraRunInfo.csv)
 
 __Genome assemblies__ not available
 
 __NGS runs mapped to metadata__ 
-- tab-delimited text file containing the table: [NGS run metadata table]()
+- tab-delimited text file containing the table: [NGS run metadata table](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Mounsey_2021/Mounsey_2021_EraRunInfo.tsv)
 
 
 
