@@ -29,13 +29,13 @@ __NCBI BioProject__ accession numbers
 - PRJNA420753 --> [PRJNA420753 page](https://www.ncbi.nlm.nih.gov/bioproject/420753)
 
 __Raw reads__ runinfo table in csv format
-- [Runinfo csv file for 7 MiSeq + 3 MinION raw reads under PRJNA420753]()
+- [Runinfo csv file for 7 MiSeq + 3 MinION raw reads under PRJNA420753](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Giddin_2018/PRJNA420753_SraRunInfo.csv)
 
 __Genome assemblies__ accession numbers for three hybrid assemblies are available but we're not going to use them.
 
 __NGS runs mapped to metadata__ metadata 
 - Phenotypic resistance profiles and isolation source of each isolate is presented in [Table 1 of the original manuscript](https://journals.asm.org/doi/10.1128/AAC.02101-17#T1)
-- Sadly the Table 1 is provided as an _image_ so you have to parse the information manually, I did it: [Isolate metadata table in tsv format]()
+- Sadly the Table 1 is provided as an _image_ so you have to parse the information manually, I did it: [Isolate metadata table in tsv format](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Giddin_2018/Giddins_2018_isolate_metadata.tsv)
 
 
 
