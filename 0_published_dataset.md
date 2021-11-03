@@ -15,6 +15,7 @@
 - *Nanopore assembly* practice
 - *Hybrid assembly* practice
 - *Antibiotic resistance genes* annotation practice
+- *Evolutionary genomics* practice using publicly available ST307 genomes
 
 ### Original WGS data description
 - Target pathogens: ST307 Klebsiella pneumoniae isolates from a single patient who were receiving ceftazidime-avibactam treatment.
@@ -22,6 +23,19 @@
 - * antibiotic resistance phenotypes of the isolates determined for CAZ-AVI and meropenem
 - Sequencing platform: Illumina MiSeq applied to all isolates; ONT MinION applied to three isolates
 - N. isoaltes sequenced: 7
+
+### Dataset links
+__NCBI BioProject__ accession numbers
+- PRJNA420753 --> [PRJNA420753 page](https://www.ncbi.nlm.nih.gov/bioproject/420753)
+
+__Raw reads__ runinfo table in csv format
+- [Runinfo csv file for 7 MiSeq + 3 MinION raw reads under PRJNA420753]()
+
+__Genome assemblies__ accession numbers for three hybrid assemblies are available but we're not going to use them.
+
+__NGS runs mapped to metadata__ metadata 
+- Phenotypic resistance profiles and isolation source of each isolate is presented in [Table 1 of the original manuscript](https://journals.asm.org/doi/10.1128/AAC.02101-17#T1)
+- Sadly the Table 1 is provided as an _image_ so you have to parse the information manually, I did it: [Isolate metadata table in tsv format]()
 
 
 
