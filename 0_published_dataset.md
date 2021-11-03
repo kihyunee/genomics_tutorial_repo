@@ -28,12 +28,12 @@ __NCBI BioProject__ sadly
 - PRJEB27256 --> [PRJEB27256 page](https://www.ncbi.nlm.nih.gov/bioproject/420753)
 
 __Raw reads__ runinfo table in csv format; filtered 12 entries that are relevant to this study because the bioproject contained a larger dataset from this umbrella project
-- [Runinfo csv file for the subset of PRJEB27256 that are relevant]()
+- [Runinfo csv file for the subset of PRJEB27256 that are relevant](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Lam_2019/PRJEB27256_relevant_SraRunInfo.csv)
 
 __Genome assemblies__ we're not going to use them.
 
 __NGS runs mapped to metadata__ metadata 
-- [MiSeq run accession mapped to isolate name and isolation source info]()
+- [MiSeq run accession mapped to isolate name and isolation source info](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Lam_2019/run_isolate_metadata.tsv)
 
 
 
