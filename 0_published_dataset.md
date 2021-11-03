@@ -2,6 +2,46 @@
 # Individual dataset description
 
 
+
+## Lisotto et al. 2021 VRE and VSE nosocomial isolates collected from University Medical Center Groningen (UMCG)
+
+### Citation
+- __Long-read sequencing-based in silico phage typing of vancomycin-resistant Enterococcus faecium__
+- BMC Genomics 22, 758 (2021)
+- Paola Lisotto, Erwin C. Raangs, Natacha Couto, Sigrid Rosema, Mariëtte Lokate, Xuewei Zhou, Alexander W. Friedrich, John W. A. Rossen, Hermie J. M. Harmsen, Erik Bathoorn \* & Monika A. Chlebowicz-Fliss
+- Correspondence: \* Department of Medical Microbiology and Infection Prevention, University of Groningen, University Medical Center Groningen, Netherlands
+
+### Opt for
+- *Illumina assembly* practice
+- *Nanopore assembly* practice
+- *Hybrid assembly* practice
+- *Antibiotic resistance genes* annotation practice
+- *Evolutionary genomics* practice (optionally) using publicly available closely related VRE/VSE genomes
+
+### Original WGS data description
+- Target pathogens: Enterococcus faecium isolates from patients of UMCG between 2014 and 2019
+- * from nosocomial outbreaks, 
+- * or from bloodstream infection surveillance
+- Sequencing platform: Illumina MiSeq and ONT MinION
+- N. isoaltes sequenced: 12
+
+### Dataset links
+__NCBI BioProject__ 
+- PRJEB41626 --> [PRJEB41626 page](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB41626)
+
+__Raw reads__ runinfo, strangely 23 runs are in PRJEB41626, 1 run lies separately in PRJEB25590
+- RunInfo sample names are not automatically matched to the isolate metadata table provided as Table 1 in the published article.
+- Thus I collated BioSample accession - sample titles - matched sample titles in runinfo csv - plus published Table 1 to create the isolate metadata table which include both the isolation source data and the accession numbers for MiSeq and MinION runs. 
+- SRA runinfo csv files are not needed here anymore.
+
+__Genome assemblies__ not available.
+
+__NGS runs mapped to metadata__ metadata 
+- [MinION and MiSeq run accessions and isolation source info mapped to each other in tsv file]()
+
+
+
+
 ## Lam et al. 2019 K. pneumoniae ST15 isolates collected in Norwegian hospitals.
 
 ### Citation
