@@ -37,7 +37,7 @@ __Raw reads__ runinfo, strangely 23 runs are in PRJEB41626, 1 run lies separatel
 __Genome assemblies__ not available.
 
 __NGS runs mapped to metadata__ metadata 
-- [MinION and MiSeq run accessions and isolation source info mapped to each other in tsv file]()
+- [MinION and MiSeq run accessions and isolation source info mapped to each other in tsv file](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Lisotto_2021/run_isolate_metadata.tsv)
 
 
 
