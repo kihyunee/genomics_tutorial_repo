@@ -2,9 +2,16 @@
 # Individual dataset description
 
 
+## Giddins et al. 2018 K. pneumoniae isolates from a patient among which ceftazidime-avibactam resistance and meropenem resistance evolved 
+
+### Citation
+- __
+- 
+
+
 ## Gorrie et al. 2017 K. pneumoniae ICU infection isolates and the patient rectal carriage isolates compared
 
-Mostly only Illumina
+Most isolates were sequenced only using Illumina\
 2 isolates did both ONT MinION and Illumina
 
 
