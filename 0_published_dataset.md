@@ -5,8 +5,25 @@
 ## Giddins et al. 2018 K. pneumoniae isolates from a patient among which ceftazidime-avibactam resistance and meropenem resistance evolved 
 
 ### Citation
-- __
-- 
+- __Successive emergence of ceftazidimeavibactam resistance through distinct genomic adaptations in blaKPC-2-harboring Klebsiella pneumoniae sequence type 307 isolates
+- Antimicrob Agents Chemother 62:e02101-17, https://doi.org/10.1128/AAC.02101-17
+- Giddins MJ, Macesic N, Annavajhala MK, Stump S, Khan S, McConville TH, Mehta M, Gomez-Simmonds A, Uhlemann A-C.
+- Correspondence: Department of Medicine, Division of Infectious Diseases, Columbia University Medical Center, New York, USA
+
+### Opt for
+- *Illumina assembly* practice
+- *Nanopore assembly* practice
+- *Hybrid assembly* practice
+- *Antibiotic resistance genes* annotation practice
+
+### Original WGS data description
+- Target pathogens: ST307 Klebsiella pneumoniae isolates from a single patient who were receiving ceftazidime-avibactam treatment.
+- * seven culture isolates obtained from blood, pancreatic fluid, BAL and tracheal aspirate
+- * antibiotic resistance phenotypes of the isolates determined for CAZ-AVI and meropenem
+- Sequencing platform: Illumina MiSeq applied to all isolates; ONT MinION applied to three isolates
+- N. isoaltes sequenced: 7
+
+
 
 
 ## Gorrie et al. 2017 K. pneumoniae ICU infection isolates and the patient rectal carriage isolates compared
