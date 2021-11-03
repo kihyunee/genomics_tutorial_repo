@@ -2,7 +2,43 @@
 # Individual dataset description
 
 
-## Giddins et al. 2018 K. pneumoniae isolates from a patient among which ceftazidime-avibactam resistance and meropenem resistance evolved 
+## Lam et al. 2019 K. pneumoniae ST15 isolates collected in Norwegian hospitals.
+
+### Citation
+- __Convergence of virulence and MDR in a single plasmid vector in MDR Klebsiella pneumoniae ST15__
+- Journal of Antimicrobial Chemotherapy, Volume 74, Issue 5, May 2019, Pages 1218–1222, https://doi.org/10.1093/jac/dkz028
+- Margaret M C Lam, Kelly L Wyres, Ryan R Wick, Louise M Judd, Aasmund Fostervold, Kathryn E Holt, Iren Høyland Löhr\*
+- Correspondence: \* Department of Medical Microbiology, Stavanger University Hospital, Stavanger, Norway
+
+### Opt for
+- *Illumina assembly* practice
+- *Antibiotic resistance genes* annotation practice
+- *Evolutionary genomics* practice (optionally) using publicly available ST15 genomes
+
+### Original WGS data description
+- Target pathogens: ST15 K. pneumoniae isolates
+- * One isoalte from a patient with cholangiocarcinoma and later bacteremia ; from Oslo hospital in 2014
+- * One isolate from a patient with glioblastoma, neutropenic fever with pneumonia and bacteraemia; from Western Norway hospital in 2015 
+- * Other genomes (n = 10) within Norwegian WGS surveillance belonging to ST15 were used
+- Sequencing platform: Illumina reads are available for all isolates; ONT was performed on two focal strains but the raw reads are not available.
+- N. isoaltes sequenced: 12
+
+### Dataset links
+__NCBI BioProject__ sadly 
+- PRJEB27256 --> [PRJEB27256 page](https://www.ncbi.nlm.nih.gov/bioproject/420753)
+
+__Raw reads__ runinfo table in csv format; filtered 12 entries that are relevant to this study because the bioproject contained a larger dataset from this umbrella project
+- [Runinfo csv file for the subset of PRJEB27256 that are relevant]()
+
+__Genome assemblies__ we're not going to use them.
+
+__NGS runs mapped to metadata__ metadata 
+- [MiSeq run accession mapped to isolate name and isolation source info]()
+
+
+
+
+## Giddins et al. 2018 K. pneumoniae ST307 isolates from a single patient, in which ceftazidime-avibactam resistance and meropenem resistance evolved
 
 ### Citation
 - __Successive emergence of ceftazidimeavibactam resistance through distinct genomic adaptations in blaKPC-2-harboring Klebsiella pneumoniae sequence type 307 isolates
