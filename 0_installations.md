@@ -179,7 +179,7 @@ These tools are not only used in unicycler workflow; but are rather generally us
 - __Blast+__
 
 
-### Racon assembler (employed within unicycler workflow)
+## Racon assembler (employed within unicycler workflow)
 
 tool website: https://github.com/lbcb-sci/racon
 
@@ -204,7 +204,7 @@ OK now get racon and install it.
 `sudo make install`
 
 
-### Pilon for polishing sequences using short reads
+## Pilon for polishing sequences using short reads
 
 tool website: https://github.com/broadinstitute/pilon/wiki
 
@@ -218,7 +218,7 @@ pilon better be installed within the _Unicycler_ conda environment (we made it a
 Note that if you will need pilon in a workflow other than unicycler, you'll likely need to install pilon in that specific environment too.
 
 
-### Bowtie2 aligner for mapping/aligning short reads to any reference sequences; system-wide installation
+## Bowtie2 aligner for mapping/aligning short reads to any reference sequences; system-wide installation
 
 download the binary package from https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.4.4/bowtie2-2.4.4-linux-x86_64.zip/download
 
@@ -228,7 +228,7 @@ place the downloaded bowtie2-2.4.4-linux-x86_64.zip in `~/genomics_tutorial/inst
 `cd bowtie2-2.4.4-linux-x86_64`\
 `sudo cp bowtie2* /usr/local/bin/`
 
-### Samtools for manipulating read alignment outputs; install system-wide
+## Samtools for manipulating read alignment outputs; install system-wide
 
 tool website:https://github.com/samtools
 
@@ -252,7 +252,7 @@ Add the path to samtools binaries to the system environment PATH.\
 `source ~/.bashrc`
 
 
-### Blast+ (NCBI) for local alignment searching; install system-wide
+## Blast+ (NCBI) for local alignment searching; install system-wide
 `mkdir ~/genomics_tutorial/installation/ncbi_blast`\
 `cd ~/genomics_tutorial/installation/ncbi_blast`\
 `wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.12.0+-x64-linux.tar.gz`\
@@ -262,5 +262,24 @@ Add the path to samtools binaries to the system environment PATH.\
 `source ~/.bashrc`
 
 
+## Trycycler, a long read assembly workflow
 
-conda install spades
+
+## Flye long-read assembler (to be used within Trycycler environment)
+
+
+## Miniasm + Minipolish, a long read assembly workflow (to be used within Trycycler environment)
+
+
+## Medaka, polishing the assemblies using long reads (to be used within Trycycler environment)
+
+
+## Polypolish, polishing the assemblies using short reads (to be used within Trycycler environment)
+
+
+## BWA, short read mapping (alignment) tool that is to be used within Polipolish process (but also have general utility!)
+
+
+## Bandage, a tool for visualization of assembly graphs
+
+
