@@ -82,6 +82,8 @@ This tool can be downloaded from NCBI FTP in executable binary format.
 `sudo cp datasets dataformat /usr/local/bin/`
 
 
+# Tools for NGS reads quality control
+
 ## Fastp for quick quality control (filtering & trimming) of illumina reads
 
 tool website: https://github.com/OpenGene/fastp
@@ -119,3 +121,146 @@ Now, do it again\
 bin/filtlong -h
 
 
+# Tools for genome assembly from WGS reads (short reads only, long reads only, and hybrid)
+
+## Spades to be used in illumina-only assembly
+
+tool website: https://github.com/ablab/spades
+
+Create directory for installation file\
+`mkdir ~/genomics_tutorial/installation/spades`\
+`cd ~/genomics_tutorial/installation/spades`
+
+Download the package containing executable binary\
+`wget http://cab.spbu.ru/files/release3.15.3/SPAdes-3.15.3-Linux.tar.gz`\
+`tar -xzf SPAdes-3.15.3-Linux.tar.gz`\
+`cd SPAdes-3.15.3-Linux/bin/`
+
+Make spades commands available from any location.
+
+`tail ~/.bashrc`\
+`echo "export PATH=$PWD:\$PATH" >> ~/.bashrc`\
+`tail ~/.bashrc`\
+`source ~/.bashrc`
+
+
+## Unicycler for both illumina-only and illumina + nanopore hybrid assemblies
+
+tool website: https://github.com/rrwick/Unicycler
+
+__*Note*__ that unicycler requires python version lower than 3.8 so it's better to create a separate conda environment for unicycler, in which python version 3.5 is employed.
+
+`conda create -n unicycler_py35 python=3.5`\
+`conda activate unicycler_py35`
+
+Then clone spades github directory and install it.
+
+`cd ~/genomics_tutorial/installation`\
+`git clone https://github.com/rrwick/Unicycler.git`\
+`cd Unicycler`\
+`python setup.py install`
+
+__*Note*__ here's another tricky thing with unicycler: unicycler needs __Spades version between 3.6.2 and 3.13.0__ (while the current version is 3.15.3 at the time of writing)\
+So install spades 3.13.0 within the *unicycler_py35* environment.\
+`conda install -c bioconda spades=3.13.0`\
+This is not the end. When you call `unicycler` unicycler will call `spades 3.15.3` that you have installed in system-wide path (above) and will fail with a complain about 'too new version' of spades.
+
+Solution: when running `unicycler` add this argument: `--spades_path /home/osboxes/miniconda3/envs/unicycler_py35/bin`
+
+__Other dependencies for Unicycler:__
+
+In order to run Unicycler successfully, you need to finish installing these additional tools - installation guide for which will be given from here on - \
+These tools are not only used in unicycler workflow; but are rather generally useful tools so we will install them system-wide (rather than in *unicycler_py35* environment).
+
+- __Racon__
+- __Pilon__
+- __Bowtie2__
+- __Samtools__
+- __Blast+__
+
+
+### Racon assembler (employed within unicycler workflow)
+
+tool website: https://github.com/lbcb-sci/racon
+
+_We will install **racon** system-wide, NOT WITHIN the unicycler conda environment_ 
+
+`conda deactivate`\
+`conda deactivate`\
+
+If you have not installed __*cmake*__ beforehand, you have to install it before you could go ahead for racon.
+
+`sudo apt install cmake`
+
+OK now get racon and install it.
+
+`cd ~/genomics_tutorial/installation`\
+`git clone --recursive https://github.com/lbcb-sci/racon.git racon`\
+`cd racon`\
+`mkdir build`\
+`cd build`\
+`cmake -DCMAKE_BUILD_TYPE=Release ..`\
+`make`\
+`sudo make install`
+
+
+### Pilon for polishing sequences using short reads
+
+tool website: https://github.com/broadinstitute/pilon/wiki
+
+pilon better be installed within the _Unicycler_ conda environment (we made it as 'unicycler_py35' in a previous step)
+`conda activate unicycler_py35`\
+`conda install -c bioconda pilon`
+
+> or if the above conda approach does not work, install JRE
+> and get the pilon jar file from https://github.com/broadinstitute/pilon/releases/download/v1.24/pilon-1.24.jar
+
+Note that if you will need pilon in a workflow other than unicycler, you'll likely need to install pilon in that specific environment too.
+
+
+### Bowtie2 aligner for mapping/aligning short reads to any reference sequences; system-wide installation
+
+download the binary package from https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.4.4/bowtie2-2.4.4-linux-x86_64.zip/download
+
+place the downloaded bowtie2-2.4.4-linux-x86_64.zip in `~/genomics_tutorial/installation/bowtie2`\
+`cd ~/genomics_tutorial/installation/bowtie2`\
+`unzip bowtie2-2.4.4-linux-x86_64.zip`\
+`cd bowtie2-2.4.4-linux-x86_64`\
+`sudo cp bowtie2* /usr/local/bin/`
+
+### Samtools for manipulating read alignment outputs; install system-wide
+
+tool website:https://github.com/samtools
+
+Before compiling the samtools, you may have to install __*libncurses5-dev*__, __*liblzma-dev*__ and __*libbz2-dev*__ on your ubuntu:
+`sudo apt-get update -y`\
+`sudo apt-get install -y libncurses5-dev`\
+`sudo apt-get install -y libbz2-dev`\
+`sudo apt-get install -y liblzma-dev`
+
+`mkdir ~/genomics_tutorial/installation/samtools`\
+`cd ~/genomics_tutorial/installation/samtools`\
+`wget https://github.com/samtools/samtools/releases/download/1.14/samtools-1.14.tar.bz2`\
+`bzip2 -d samtools-1.14.tar.bz2`\
+`tar -xf samtools-1.14.tar`\
+`cd samtools-1.14/'\
+`./configure --prefix=/home/osboxes/genomics_tutorial/installation/samtools/samtools-1.14`\
+`make`\
+`make install`\
+Add the path to samtools binaries to the system environment PATH.\
+`echo "export PATH=$PWD/bin:\$PATH" >> ~/.bashrc`\
+`source ~/.bashrc`
+
+
+### Blast+ (NCBI) for local alignment searching; install system-wide
+`mkdir ~/genomics_tutorial/installation/ncbi_blast`\
+`cd ~/genomics_tutorial/installation/ncbi_blast`\
+`wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.12.0+-x64-linux.tar.gz`\
+`tar -xzf ncbi-blast-2.12.0+-x64-linux.tar.gz`\
+`cd ncbi-blast-2.12.0+/bin`\
+`echo "export PATH=$PWD:\$PATH" >> ~/.bashrc`\
+`source ~/.bashrc`
+
+
+
+conda install spades
