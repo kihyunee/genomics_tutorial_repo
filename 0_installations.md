@@ -100,7 +100,14 @@ tool website; https://github.com/rrwick/Filtlong
 `cd ~/genomics_tutorial/installation`\
 `git clone https://github.com/rrwick/Filtlong.git`\
 `cd Filtlong`\
-`make -j`\
+`make -j`
+
+If you have never installed __make__ and/or __g++__ the above `make` command will fail. In that case you have to install __make__ and __g++__ first.
+
+`sudo apt install make`\
+`sudo apt install g++`\
+`make -j`
+
 bin/filtlong -h
 
 
