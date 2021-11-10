@@ -73,6 +73,7 @@ When you are not using kingfisher anymore:\
 tool website: https://www.ncbi.nlm.nih.gov/datasets/docs/v1/quickstarts/command-line-tools/
 
 This tool can be downloaded from NCBI FTP in executable binary format.
+
 `mkdir ~/genomics_tutorial/installation/ncbi_datasets`\
 `cd ~/genomics_tutorial/installation/ncbi_datasets`\
 `wget https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets`\
@@ -80,5 +81,15 @@ This tool can be downloaded from NCBI FTP in executable binary format.
 `chmod +x datasets dataformat`\
 `sudo cp datasets dataformat /usr/local/bin/`
 
+
+## Fastp for quick quality check, filter, trimming of illumina reads
+
+tool website: https://github.com/OpenGene/fastp
+
+Make sure that you are inside the __*base*__ conda environment, not in any other particular conda environment.
+
+`conda deactivate`\
+`conda activate base`\
+`conda install -c bioconda fastp`
 
 
