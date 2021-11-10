@@ -82,7 +82,7 @@ This tool can be downloaded from NCBI FTP in executable binary format.
 `sudo cp datasets dataformat /usr/local/bin/`
 
 
-## Fastp for quick quality check, filter, trimming of illumina reads
+## Fastp for quick quality control (filtering & trimming) of illumina reads
 
 tool website: https://github.com/OpenGene/fastp
 
@@ -91,5 +91,16 @@ Make sure that you are inside the __*base*__ conda environment, not in any other
 `conda deactivate`\
 `conda activate base`\
 `conda install -c bioconda fastp`
+
+
+## Filtlong for quality control (filtering & trimming) of long-read sequencing reads
+
+tool website; https://github.com/rrwick/Filtlong
+
+`cd ~/genomics_tutorial/installation`\
+`git clone https://github.com/rrwick/Filtlong.git`\
+`cd Filtlong`\
+`make -j`\
+bin/filtlong -h
 
 
