@@ -165,7 +165,7 @@ So install spades 3.13.0 within the *unicycler_py35* environment.\
 `conda install -c bioconda spades=3.13.0`\
 This is not the end. When you call `unicycler` unicycler will call `spades 3.15.3` that you have installed in system-wide path (above) and will fail with a complain about 'too new version' of spades.
 
-Solution: when running `unicycler` add this argument: `--spades_path /home/osboxes/miniconda3/envs/unicycler_py35/bin`
+Solution: when running `unicycler` add this argument: `--spades_path /home/osboxes/miniconda3/envs/unicycler_py35/bin/spades.py`
 
 __Other dependencies for Unicycler:__
 
