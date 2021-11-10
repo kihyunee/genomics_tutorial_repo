@@ -102,10 +102,18 @@ tool website; https://github.com/rrwick/Filtlong
 `cd Filtlong`\
 `make -j`
 
-If you have never installed __make__ and/or __g++__ the above `make` command will fail. In that case you have to install __make__ and __g++__ first.
+If you have not installed any of __make__, __g++__, and/or __zlib__ previously, the above `make` command will __FAIL__.
 
+In that case you have to install __make__, __g++__, and/or __zlib__ first.
+
+make\
 `sudo apt install make`\
+g++\
 `sudo apt install g++`\
+zlib\
+`sudo apt-get install libz-dev`
+
+Now, do it again\
 `make -j`
 
 bin/filtlong -h
