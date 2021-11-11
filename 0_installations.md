@@ -377,14 +377,16 @@ Install prokka in its own conda environment __prokka__
 
 tool website: https://github.com/tseemann/abricate
 
-```conda create -n abricate\
-conda activate abricate\
-conda config --add channels defaults\
-conda config --add channels bioconda\
-conda config --add channels conda-forge\
-conda install abricate\
-abricate --check\
-abricate --list```
+```
+conda create -n abricate
+conda activate abricate
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda install abricate
+abricate --check
+abricate --list
+```
 
 
 
