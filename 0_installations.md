@@ -370,3 +370,21 @@ Install prokka in its own conda environment __prokka__
 `conda install prokka`
 
 
+
+# Tools for AMR gene annotation
+
+## Abricate, a tool providing uniform annotation using various public ARG DBs, notably using nucleotide sequences for both the references and the query assembly.
+
+tool website: https://github.com/tseemann/abricate
+
+`conda create -n abricate\
+conda activate abricate\
+conda config --add channels defaults\
+conda config --add channels bioconda\
+conda config --add channels conda-forge\
+conda install abricate\
+abricate --check\
+abricate --list`
+
+
+
