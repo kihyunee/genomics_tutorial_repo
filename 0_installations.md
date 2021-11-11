@@ -264,22 +264,84 @@ Add the path to samtools binaries to the system environment PATH.\
 
 ## Trycycler, a long read assembly workflow
 
+tool website: https://github.com/rrwick/Trycycler/wiki
 
-## Flye long-read assembler (to be used within Trycycler environment)
+Install trycycler in the conda environment __trycycler__
 
-
-## Miniasm + Minipolish, a long read assembly workflow (to be used within Trycycler environment)
-
-
-## Medaka, polishing the assemblies using long reads (to be used within Trycycler environment)
-
-
-## Polypolish, polishing the assemblies using short reads (to be used within Trycycler environment)
-
-
-## BWA, short read mapping (alignment) tool that is to be used within Polipolish process (but also have general utility!)
+`conda deactivate` (if you were in unicycler_py35 environment)\
+`conda create --name trycycler`\
+`conda activate trycycler`\
+`conda config --add channels defaults`\
+`conda config --add channels bioconda`\
+`conda config --add channels conda-forge`\
+`conda install trycycler`
 
 
-## Bandage, a tool for visualization of assembly graphs
+## Flye long-read assembler (will be used alone and also as a main workhorse of Trycycler workflow)
 
+tool website: https://github.com/fenderglass/Flye
+
+Install flye within the conda environment __trycycler__\
+Remember that you are installing __*flye*__ inside trycycler environment so even when you'll use it alone, do activate `conda activate trycycler` before starting.
+
+`conda install flye`
+
+
+## Miniasm + Minipolish, a long read assembly workflow (will be used alone and also as a main workhorse of Trycycler workflow)
+
+tool website: https://github.com/rrwick/Minipolish
+
+Install minipolish within the conda environment __trycycler__
+
+`mkdir ~/genomics_tutorial/installation/minipolish`\
+`cd ~/genomics_tutorial/installation/minipolish`\
+`git clone https://github.com/rrwick/Minipolish.git`\
+`pip3 install ./Minipolish`\
+`cp Minipolish/miniasm_and_minipolish.sh /home/osboxes/miniconda3/envs/trycycler/bin/`\
+`cp Minipolish/minipolish-runner.py /home/osboxes/miniconda3/envs/trycycler/bin/`
+
+
+## Medaka, polishing the assemblies using long reads (can be used after Trycycler workflow or after Flye, or in any case when you have both assembly and long reads from the same strain)
+
+For medaka, create it's own conda environment __medaka__
+
+`conda deactivate`\
+`conda create -n medaka -c conda-forge -c bioconda medaka`
+
+
+## Polypolish, polishing the assemblies using short reads (can be used in any hybrid assembly workflow)
+
+Install system-wide.
+
+`mkdir ~/genomics_tutorial/installation/polipolish`\
+`cd ~/genomics_tutorial/installation/polipolish`\
+`wget https://github.com/rrwick/Polypolish/releases/download/v0.4.3/polypolish-linux-x86_64-musl-v0.4.3.tar.gz`\
+`tar -xzf polypolish-linux-x86_64-musl-v0.4.3.tar.gz`\
+`sudo cp polypolish /usr/local/bin/`
+
+
+## BWA, short read mapping (alignment) tool (is used within Polipolish process, but also have general utility!)
+
+tool website: https://github.com/lh3/bwa
+
+Install system wide.
+
+`cd ~/genomics_tutorial/installation/`\
+`git clone https://github.com/lh3/bwa.git`\
+`cd bwa`\
+`make`\
+`sudo cp bwa qualfa2fq.pl xa2multi.pl /usr/local/bin/`
+
+
+## Bandage, a tool for visualization of assembly graphs. You will want use it if you want to visually comprehend how your reads (short or long or hybrid) were connected to each other in your assembly.
+
+tool website: https://github.com/rrwick/Bandage
+
+Install system wide.
+
+`mkdir ~/genomics_tutorial/installation/bandage`\
+`cd ~/genomics_tutorial/installation/bandage`\
+`wget https://github.com/rrwick/Bandage/releases/download/v0.8.1/Bandage_Ubuntu_static_v0_8_1.zip`\
+`unzip Bandage_Ubuntu_static_v0_8_1.zip`\
+`sudo cp Bandage /usr/local/bin/`
 
