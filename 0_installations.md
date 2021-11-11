@@ -1,9 +1,11 @@
 # Prepare a working directory for all WGS analysis stuffs
 
-`cd ~`\
-`mkdir genomics_tutorial`\
-`cd genomics_tutorial`\
-`mkdir installation`
+```
+cd ~
+mkdir genomics_tutorial
+cd genomics_tutorial
+mkdir installation
+```
 
 
 # System stuffs
@@ -17,24 +19,29 @@ You can check that you have python3.8 installed in this VM.\
 
 following this: https://linuxize.com/post/how-to-install-git-on-ubuntu-18-04/
 
-`sudo apt update`\
-`sudo apt install git`
+```
+sudo apt update
+sudo apt install git
+```
 
 ## Miniconda
 
-`cd ~/genomics_tutorial/installation`\
-`wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.10.3-Linux-x86_64.sh`\
-`bash Miniconda3-py38_4.10.3-Linux-x86_64.sh`\
+```
+cd ~/genomics_tutorial/installation
+wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.10.3-Linux-x86_64.sh
+bash Miniconda3-py38_4.10.3-Linux-x86_64.sh
+```
 when the prompt asks you the location for miniconda installtaion, answer this:\
 > /home/osboxes/genomics_tutorial/miniconda3
-> 
+ 
 `rm Miniconda3-py38_4.10.3-Linux-x86_64.sh`
 
-Add some channels:\
-`conda config --add channels defaults`\
-`conda config --add channels bioconda`\
-`conda config --add channels conda-forge`
-
+Add some channels:
+```
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
 
 # Tools for accessing public NGS/genome data
 
