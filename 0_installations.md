@@ -301,6 +301,15 @@ Install minipolish within the conda environment __trycycler__
 `cp Minipolish/minipolish-runner.py /home/osboxes/miniconda3/envs/trycycler/bin/`
 
 
+## any2fasta, a mini script that can convert genome assembly graph to sequence fasta 
+
+tool website: https://github.com/tseemann/any2fasta
+
+`cd /usr/local/bin`\
+`sudo wget https://raw.githubusercontent.com/tseemann/any2fasta/master/any2fasta`\
+`sudo chmod +x any2fasta`
+
+
 ## Medaka, polishing the assemblies using long reads (can be used after Trycycler workflow or after Flye, or in any case when you have both assembly and long reads from the same strain)
 
 For medaka, create it's own conda environment __medaka__
@@ -344,4 +353,20 @@ Install system wide.
 `wget https://github.com/rrwick/Bandage/releases/download/v0.8.1/Bandage_Ubuntu_static_v0_8_1.zip`\
 `unzip Bandage_Ubuntu_static_v0_8_1.zip`\
 `sudo cp Bandage /usr/local/bin/`
+
+
+
+# Tools for basic, general-purpose gene annotation
+
+## Prokka, a tool combining the identification of protein-coding genes, rRNAs, tRNAs, etc. plus (optionally) functional annotations
+
+Install prokka in its own conda environment __prokka__
+
+`conda create --name prokka`\
+`conda activate prokka`\
+`conda config --add channels defaults`\
+`conda config --add channels bioconda`\
+`conda config --add channels conda-forge`\
+`conda install prokka`
+
 
