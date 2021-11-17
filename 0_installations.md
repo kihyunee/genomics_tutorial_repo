@@ -503,3 +503,118 @@ conda config --add channels conda-forge
  # (after the above)
 conda install isescan
 ```
+
+## Macsyfinder, a macromolecular system annotation tool, particularly we will use this for annotation with TXSS & CONJ models
+
+website (user guide): https://macsyfinder.readthedocs.io/en/latest/user_guide/index.html
+
+Install macsyfinder in __*macsyfinder*__ virtual environment
+
+```
+mkdir ~/genomics_tutorial/installations/macsyfinder
+cd ~/genomics_tutorial/installations/macsyfinder
+python3 -m venv macsyfinder
+cd macsyfinder
+source bin/activate
+git clone https://github.com/gem-pasteur/macsyfinder.git
+cd macsyfinder
+pip3 install .
+```
+
+_Note_, when you start to work with macsyfinder:
+
+`source ~/genomics_tutorial/installations/macsyfinder/macsyfinder/bin/activate`
+
+_Note_, when you are DONE, get OUT of macsyfinder:
+
+`deactivate`
+
+
+Macsyfinder identifies macromolecular systems using the pre-built models. There are available models pre-built for macsyfinder. 
+Of our interest are: TXSS and Conjugation
+
+TXSS models can identify type-X-secretion systems. Check available TXSS models and download them.
+
+```
+source ~/genomics_tutorial/installations/macsyfinder/macsyfinder/bin/activate
+macsydata available
+
+cd ~/genomics_tutorial/installations/macsyfinder/macsyfinder
+mkdir models
+mkdir models/TXSS
+
+macsydata download --dest models/TXSS TXSS
+
+cd models/TXSS
+tar -xzf TXSS-1.0rc1.tar.gz
+```
+
+Also CONJScan models.\
+These can be used to identify ICEs and conjugative plasmids within macsyfinder workflow.\
+(model/database website: https://github.com/gem-pasteur/Macsyfinder_models/tree/master/models/Conjugation)
+
+Open firefox in you ubuntu and go to the above linked page.\
+Click the link in the Download section to download the Conjugation directory zip file.\
+Then,
+
+```
+mkdir ~/genomics_tutorial/installation/macsyfinder/macsyfinder/models/Conjugation
+cd ~/genomics_tutorial/installation/macsyfinder/macsyfinder/models/Conjugation
+mv /home/osboxes/Downloads/Conjugation.zip .
+unzip Conjugation.zip
+```
+
+When you will use TXSS models, feed the following path as model directory:\
+> ~/genomics_tutorial/installations/macsyfinder/macsyfinder/models/TXSS/macsy-models-TXSS-08a7375
+
+When you will analyze CONJ models, specify the model directory like this:\
+> ~/genomics_tutorial/installations/macsyfinder/macsyfinder/models/Conjugation/Conjugation
+
+
+
+## ACLAME database, to search for mobile genetic element sequences
+
+wetsite: http://aclame.ulb.ac.be/perl/Aclame/Tools/exporter.cgi
+
+Open firefox and download 'Genes' section, check all boxes, check fasta format box in three sections: plasmid, virus, and prophage.
+
+
+## ISFinder sequences, to search for IS element-associated transposase sequences
+
+website: https://github.com/thanhleviet/ISfinder-sequences
+
+```
+mkdir ~/genomics_tutorial/database
+cd ~/genomics_tutorial/database
+git clone https://github.com/thanhleviet/ISfinder-sequences.git
+```
+
+
+## Integron_Finder, which identifies integrons 
+
+website: https://github.com/gem-pasteur/Integron_Finder
+
+Installing integron_finder could be tricky as it requires lower version of biopython, BUT great Dr. Cury wrote a nice copiable instruction how to install it successfully:
+
+```
+conda create --name integron_finder python=3.6 
+conda config --add channels bioconda # if it's not already the case
+conda activate integron_finder    
+conda install integron_finder # install integron_finder
+conda install biopython==1.72 # downgrade biopython and pandas waiting for upcoming fixes
+conda install pandas=0.25.3
+```
+
+# HattCI, searching for attC sites (motifs) to aid discovery of integrons 
+
+website: https://github.com/maribuon/HattCI
+
+```
+cd ~/genomics_tutorial/installation
+git clone https://github.com/maribuon/HattCI.git
+cd HattCI
+make
+sudo cp hattci.out /usr/local/bin/
+```
+
+
