@@ -592,7 +592,8 @@ git clone https://github.com/thanhleviet/ISfinder-sequences.git
 
 ## Integron_Finder, which identifies integrons 
 
-website: https://github.com/gem-pasteur/Integron_Finder
+website: https://github.com/gem-pasteur/Integron_Finder\
+tutorial site: https://integronfinder.readthedocs.io/en/latest/user_guide/tutorial.html
 
 Installing integron_finder could be tricky as it requires lower version of biopython, BUT great Dr. Cury wrote a nice copiable instruction how to install it successfully:
 
@@ -605,7 +606,7 @@ conda install biopython==1.72 # downgrade biopython and pandas waiting for upcom
 conda install pandas=0.25.3
 ```
 
-# HattCI, searching for attC sites (motifs) to aid discovery of integrons 
+## HattCI, searching for attC sites (motifs) to aid discovery of integrons 
 
 website: https://github.com/maribuon/HattCI
 
