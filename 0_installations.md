@@ -452,6 +452,10 @@ conda config --add channels conda-forge
 conda install ncbi-amrfinderplus
 ```
 
+Before using for the first time, you have to download the amrfinder reference database using the following command (don't need it after once you've done it).
+`amrfinder -u`
+
+
 ## RGI, a tool powered by the famous CARD database
 
 tool website: https://github.com/arpcard/rgi
