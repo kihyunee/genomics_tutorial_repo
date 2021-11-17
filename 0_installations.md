@@ -474,8 +474,32 @@ conda install --channel conda-forge --channel bioconda --channel defaults rgi=5.
 Get CARD database for use in rgi
 
 ```
+mkdir ~/genomics_tutorial/installation/card_rgi
+cd ~/genomics_tutorial/installation/card_rgi
 wget https://card.mcmaster.ca/latest/data
 tar -xvf data ./card.json
-rgi load --card_json /path/to/card.json
+rgi load --card_json ~/genomics_tutorial/installation/card_rgi/card.json
 ```
 
+
+# Tools to identify mobile genetic elements (MGEs) in the genomes
+
+## ISEScan, a tool for identification of IS elements 
+
+tool website: https://github.com/xiezhq/ISEScan
+
+Install ISEScan in its own environment __*isescan*__
+
+```
+conda create -n isescan
+conda activate isescan
+
+# followings needed if these channels do not appear by conda config --show channels
+
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+ 
+ # (after the above)
+conda install isescan
+```
