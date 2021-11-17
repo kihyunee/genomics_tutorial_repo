@@ -451,3 +451,31 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 conda install ncbi-amrfinderplus
 ```
+
+## RGI, a tool powered by the famous CARD database
+
+tool website: https://github.com/arpcard/rgi
+
+Install RGI in its own conda environment __*rgi*__
+
+```
+# check what versions of rgi are out there in conda channels
+conda search --channel conda-forge --channel bioconda --channel defaults rgi
+
+# make a new conda environment and install rgi
+conda create --name rgi 
+conda activate rgi
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda install --channel conda-forge --channel bioconda --channel defaults rgi=5.1.1
+```
+
+Get CARD database for use in rgi
+
+```
+wget https://card.mcmaster.ca/latest/data
+tar -xvf data ./card.json
+rgi load --card_json /path/to/card.json
+```
+
