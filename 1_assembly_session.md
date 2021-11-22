@@ -39,8 +39,12 @@ conda activate kingfisher
 kingfisher -r {YOUR_RUN_ACCESSION} -m ena-ascp ena-ftp aws-http prefetch
 kingfisher -r {YOUR_RUN_ACCESSION} -m ena-ascp ena-ftp aws-http prefetch
 
-# {YOUR_RUN_ACCESSION} should be replaced with the run accessions of the isolate that you picked. For example if you picked A. baumannii Cl415,
+# {YOUR_RUN_ACCESSION} should be replaced with the run accessions of the isolate that you picked.
+# For example if you picked A. baumannii Cl415,
 kingfisher -r SRR14534402 -m ena-ascp ena-ftp aws-http prefetch
 kingfisher -r SRR14534401 -m ena-ascp ena-ftp aws-http prefetch
+
+# If what you downloaded remain gzipped (file name ends with .gz) then extract them for the ease of downstream scripts
+gzip -d *.fastq.gz
 
 ```
