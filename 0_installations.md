@@ -623,3 +623,28 @@ sudo cp hattci.out /usr/local/bin/
 ```
 
 
+# Tools for comparative evolutionary analyses
+
+### mlst for MLST assignment using PubMLST schemes
+
+
+### Roary for pangenome within species
+
+
+### Pirate for pangenome within species - or more relaxed range
+
+
+### CoreCruncher for rapid extraction of core genome
+
+
+### Muscle for multiple sequence alignment
+
+
+### IQ-Tree for phylogenetic reconstruction
+
+
+### FastTree for rapid phylogenetic reconstruction
+
+
+
+
