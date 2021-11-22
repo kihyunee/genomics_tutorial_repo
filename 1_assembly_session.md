@@ -152,7 +152,7 @@ If the fastq files in qc_read/ directory are too small compared to the ones foun
 *Unicycler* is another popular assembler that can deal with illumina-only assembly of bacterial genomes.\
 We will try these two assemblers in this tutorial.
 
-**(1) illumina-only assembyl using Spades**
+**(1) illumina-only assembly using Spades**
 
 You have installed Spades in the _base_ conda environment.
 
@@ -162,6 +162,23 @@ spades.py --isolate --only-assembler -t 1 -1 qc_read/SRR14534402_1.fastq -2 qc_r
 
 > -t 1    <-- Use 1 processor (cpu); You can increase this if you have multiple processors.\
 > --isolate\
-> --only-assembler
+> --only-assembler  <-- This disables the read correction step. For better accuracy, do not use this option. In this tutorial I added this option because otherwise it will take significantly longer time.
 
+Finishing Spades assembly can take an hour or so.\
+When it finishes, check the output. Output assembly file size and the number of contigs can be checked quickly by:
+
+```
+du -sh assembly/illumina_only/spades/contigs.fa
+grep -c ">" assembly/illumina_only/spades/contigs.fa
+```
+
+
+**(2) illumina-only assembly using Unicycler**
+
+You have installed Unicycler in the _unicycler_py35_ conda environment.
+
+```
+conda activate unicycler_py35
+unicycler -1 qc_read/SRR14534402_1.fastq -2 qc_read/SRR14534402_2.fastq -o assembly/illumina_only/unicycler --spades_path /home/osboxes/genomics_tutorial/miniconda3/envs/unicycler_py35/bin/spades.py
+```
 
