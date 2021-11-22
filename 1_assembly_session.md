@@ -141,3 +141,27 @@ Let's check how much of the read files was gone/retained in the QC step.
 du -sh raw_read/*.fastq
 du -sh qc_read/*.fastq
 ```
+
+If the fastq files in qc_read/ directory are too small compared to the ones found in raw_read/ directory, you may wish to relax some of the QC thresholds.
+
+
+
+### Illumina-only assembly
+
+*Spades* is the most predominantly used WGS assembler in bacterial WGS using illumina sequencers.\
+*Unicycler* is another popular assembler that can deal with illumina-only assembly of bacterial genomes.\
+We will try these two assemblers in this tutorial.
+
+**(1) illumina-only assembyl using Spades**
+
+You have installed Spades in the _base_ conda environment.
+
+```
+spades.py --isolate --only-assembler -t 1 -1 qc_read/SRR14534402_1.fastq -2 qc_read/SRR14534402_2.fastq -o assembly/illumina_only/spades
+```
+
+> -t 1    <-- Use 1 processor (cpu); You can increase this if you have multiple processors.
+> --isolate
+> --only-assembler
+
+
