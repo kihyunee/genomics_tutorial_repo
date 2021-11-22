@@ -72,6 +72,7 @@ kingfisher -r SRR14534401 -m ena-ascp ena-ftp aws-http prefetch
 
 # If what you downloaded remain gzipped (file name ends with .gz) then extract them for the ease of downstream scripts
 gzip -d *.fastq.gz
+```
 
 Illumina WGS libraries are usually (but not always) sequenced in paired-end layout.\
 That means you will have __{Accession}_1.fastq__ and __{Accession}_2.fastq__ files.
@@ -85,6 +86,8 @@ That is not a good practice so if that's the case change the file name:
 mv {Accession}_1.fastq {Accession}.fastq
 ```
 
+Finished downloading task. You should quit the _kingfisher_ environment.
+```
 conda deactivate
 ```
 
