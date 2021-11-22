@@ -92,7 +92,7 @@ conda deactivate
 ```
 
 
-### QC and preprocessing the raw reads
+# QC and preprocessing the raw reads
 
 You will use *fastp* for QC and preprocessing the illumina reads.\
 You will use *filtlong* for QC and preprocessing the nanopore reads.\
@@ -101,7 +101,7 @@ These tools were installed within the _base_ conda environment.
 Example commands will be given using Acinetobacter baumannii Cl415 accession numbers.\
 If you are using a different dataset, change the run accession numbers (i.e. SRR14534401, SRR14534402) accordingly.
 
-**(1) illumina reads**
+### Illumina reads
 
 Raw reads came in paired-end layout. You have located raw read fastq files here:
 - raw_read/SRR14534402_1.fastq
@@ -119,7 +119,7 @@ After the execution of the above command, you will be able to find these output 
 > qc_read/SRR14534402.fastp.json  <-- json file containing the resulting QC stats
 > qc_read/SRR14534402.fastp.html  <-- html file containing the resulting QC stats <-- Open this in a web browser (Firefox, Chrome, etc) later when you want to write a report 
 
-**(2) nanopore reads**
+### Nanopore reads
 
 Raw reads came in single-end layout. You have located the raw read fasta file here:
 - raw_read/SRR14534401.fastq
@@ -144,6 +144,14 @@ du -sh qc_read/*.fastq
 
 If the fastq files in qc_read/ directory are too small compared to the ones found in raw_read/ directory, you may wish to relax some of the QC thresholds.
 
+
+
+# Assembly, from reads to contigs
+
+Typically you can expect to get 
+- draft assembly of tens - hundreds of contigs from illumina-only assembly workflows
+- a complete assembly into a single circularized chromosome plus optionally 1-N circularized plamids from nanopore-only or nanopore + illumina hybrid assembly workflows
+- though it is also possible to get a handful of non-circularized contigs even using nanopore reads. This is the case when the genome under investigation contains large repetitive elements.
 
 
 ### Illumina-only assembly
@@ -182,3 +190,14 @@ conda activate unicycler_py35
 unicycler -1 qc_read/SRR14534402_1.fastq -2 qc_read/SRR14534402_2.fastq -o assembly/illumina_only/unicycler --spades_path /home/osboxes/genomics_tutorial/miniconda3/envs/unicycler_py35/bin/spades.py
 ```
 
+
+### Nanopore-only assembly
+
+
+
+### Nanopore + Illumina hybrid assembly
+
+
+
+
+# Evaluation of the assembly results
