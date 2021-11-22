@@ -160,8 +160,8 @@ You have installed Spades in the _base_ conda environment.
 spades.py --isolate --only-assembler -t 1 -1 qc_read/SRR14534402_1.fastq -2 qc_read/SRR14534402_2.fastq -o assembly/illumina_only/spades
 ```
 
-> -t 1    <-- Use 1 processor (cpu); You can increase this if you have multiple processors.
-> --isolate
+> -t 1    <-- Use 1 processor (cpu); You can increase this if you have multiple processors.\
+> --isolate\
 > --only-assembler
 
 
