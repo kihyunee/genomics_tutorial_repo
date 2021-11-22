@@ -1,12 +1,14 @@
 
 # Get WGS raw data for the practice
 
-### Pick one of the following public WGS data examples
-All examples are\
-- from clinical isolates with notable resistance phenotypes
+### Pick one of the following public WGS data examples for your practice
+
+All examples that are recommended here are commonly,
+- of clinical isolates with notable antibiotic resistance phenotypes
 - sequenced using both illumina and nanopore approaches
 
-1. Acinetobacter baumannii Cl415
+
+(1) Acinetobacter baumannii Cl415
 
 Publication:
 > Cl415, a carbapenem-resistant Acinetobacter baumannii isolate containing four AbaR4 and a new variant of AbGRI2, represents a novel global clone 2 strain 
@@ -27,10 +29,18 @@ Data accessions:
 > Nanopore MinION raw data run accession: SRR14534401
 
 
+
 ### Download the SRA Run rawdata for the selected isolate
 
 Activate __*kingfisher*__ environment
 
 ```
 conda activate kingfisher
+kingfisher -r {YOUR_RUN_ACCESSION} -m ena-ascp ena-ftp aws-http prefetch
+kingfisher -r {YOUR_RUN_ACCESSION} -m ena-ascp ena-ftp aws-http prefetch
+
+# {YOUR_RUN_ACCESSION} should be replaced with the run accessions of the isolate that you picked. For example if you picked A. baumannii Cl415,
+kingfisher -r SRR14534402 -m ena-ascp ena-ftp aws-http prefetch
+kingfisher -r SRR14534401 -m ena-ascp ena-ftp aws-http prefetch
+
 ```
