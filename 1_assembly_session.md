@@ -235,7 +235,7 @@ vi run_flye_all_subsample.sh
 
 Text editor will open, then you type the key `i` to enable typing mode.\
 Write lines like these:
->#!/bin/bash
+>#!/bin/bash\
 >for SUBSET_NUM in 01 02 03 04 05 06 07 08 09 10 11 12\
 >do\
 >    flye --nano-raw assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_${SUBSET_NUM}.fastq --threads 1 --out-dir assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}\
