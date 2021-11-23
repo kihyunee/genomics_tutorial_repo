@@ -193,9 +193,88 @@ unicycler -1 qc_read/SRR14534402_1.fastq -2 qc_read/SRR14534402_2.fastq -o assem
 
 ### Nanopore-only assembly
 
+For nanopore-only assembly, currently, _trycycler_ workflow is standing out.\
+_Trycycler_ generate several different versions of long read-only assemblies from subsampled reads.\
+That enables _trycycler_ to reliably circularize the replicons.
+
+```
+conda activate trycycler
+mkdir assembly/nanopore_illumina_hybrid/trycycler
+```
+
+Subsample the reads, create 12 subsets (by default trycycler will create 12 subsets but you can change this number if you want)
+```
+trycycler subsample --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --out_dir assembly/nanopore_illumina_hybrid/trycycler/read_subsets
+```
+
+There will be 12 directories under assembly/nanopore_illumina_hybrid/trycycler/read_subsets, like
+>assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_01.fastq\
+>assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_02.fastq\
+>assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_03.fastq\
+> ...\
+>assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_12.fastq
+
+Now you have to assemble each subsample using any long read assembler; Flye achieves high performance so let's use it.
+
+```
+mkdir assembly/nanopore_illumina_hybrid/trycycler/assemblies
+```
+
+Each run of flye can be executed with command like this,
+```
+flye --nano-raw assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_01.fastq --threads 1 --out-dir assembly/nanopore_illumina_hybrid/trycycler/assemblies/01
+flye --nano-raw assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_02.fastq --threads 1 --out-dir assembly/nanopore_illumina_hybrid/trycycler/assemblies/02
+...
+```
+
+As you have to run flye 12 times on 12 subsampled read sets, so you'd better do it with a script rather than typing command 12 times.
+Open a vi editor to write run_flye_all_subsample.sh 
+```
+vi run_flye_all_subsample.sh 
+```
+
+Text editor will open, then you type the key `i` to enable typing mode.\
+Write lines like these:
+>#!/bin/bash
+>for SUBSET_NUM in 01 02 03 04 05 06 07 08 09 10 11 12\
+>do\
+>    flye --nano-raw assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_${SUBSET_NUM}.fastq --threads 1 --out-dir assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}\
+>    cp assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}/assembly.fasta assembly/nanopore_illumina_hybrid/trycycler/assemblies/assembly_${SUBSET_NUM}.fasta\
+>    rm -rf assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}\
+>done
+
+If you've writen all, then say type `esc` key to exit typing mode.\
+Then type `:` key to enable command typing.\
+Then type `wq` (write and quit) and press `enter` key. Now you are out of that vi editor.
+
+Make this script file executable.\
+`chmod 755 run_flye_all_subsample.sh`
+
+Then you can execute the script.\
+`./run_flye_all_subsample.sh`
+
+If you cannot keep the connection to the linux server for long enough (~ a day) until the 12 flye runs will can be finished, then you'd better run the command in 'nohup' mode.
+`nohup ./run_flye_all_subsample.sh > run_flye_all_subsample.log &`
+
+This will let the command run even after your connection to the server is closed. \
+The screen output messages that flye spit out will be writen into the file `run_flye_all_subsample.log` instead of the screen itself.\
+This will take a day or so.\
+To speed up this step, the only way is to run all flye jobs in parallel on a high performance server.
+
 
 
 ### Nanopore + Illumina hybrid assembly
+
+**(1) Hybrid assembly using Unicycler**
+
+Unicycler can perform hybrid assembly if long-read sequence file is given in addition to the illumina read files (-l)
+
+You have installed Unicycler in the _unicycler_py35_ conda environment.
+
+```
+conda activate unicycler_py35
+unicycler -1 qc_read/SRR14534402_1.fastq -2 qc_read/SRR14534402_2.fastq -l qc_read/SRR14534401.mean_phred_80_len_1k.fastq -o assembly/nanopore_illumina_hybrid/unicycler --spades_path /home/osboxes/genomics_tutorial/miniconda3/envs/unicycler_py35/bin/spades.py
+```
 
 
 
