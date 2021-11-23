@@ -107,7 +107,7 @@ Raw reads came in paired-end layout. You have located raw read fastq files here:
 - raw_read/SRR14534402_1.fastq
 - raw_read/SRR14534402_2.fastq
 
-You will use *fastq* to (a) cut out the illumina adapter sequences and (b) remove low-quality reads based on phred score.
+You will use *fastp* to (a) cut out the illumina adapter sequences and (b) remove low-quality reads based on phred score.
 
 ```
 fastp --in1 raw_read/SRR14534402_1.fastq --in2 raw_read/SRR14534402_2.fastq --out1 qc_read/SRR14534402_1.fastq --out2 qc_read/SRR14534402_2.fastq --json qc_read/SRR14534402.fastp.json --html qc_read/SRR14534402.fastp.html
