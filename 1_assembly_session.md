@@ -334,8 +334,8 @@ Result is something like this in the text editor:
 For the clusters that you picked as 'chromosome' or 'plasmid', run the `trycycler reconcile` command. (skip the clusters that you 'mask'ed)
 
 ```
-trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001\
-trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_004\
+trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001
+trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_004
 trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_006
 ```
 
@@ -343,10 +343,17 @@ trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --clu
 For example, if C_contig_1 in cluster_001 behaved strangely, you can exclude that contig from the reconciliation by:
 
 ```
-mv assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001/1_contigs/C_contig_1.fasta assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001/1_contigs/C_contig_1.fasta.bad\
+mv assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001/1_contigs/C_contig_1.fasta assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001/1_contigs/C_contig_1.fasta.bad
 trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001
 ```
 
+
+For the clusters that you successfully finished reconciliation step, run multiple sequence alignment (msa)
+
+```
+trycycler msa --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001
+trycycler msa --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_ ...
+```
 
 
 ### Nanopore + Illumina hybrid assembly
