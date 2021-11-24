@@ -267,6 +267,34 @@ Once flye has finished assembling all 12 subsets, cluster the resulting contigs 
 trycycler cluster --assemblies assembly/nanopore_illumina_hybrid/trycycler/assemblies/*.fasta --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --out_dir assembly/nanopore_illumina_hybrid/trycycler/cluster
 ```
 
+Next, inspect how the contigs were clustered into clusters in the form of phylogenetic tree.\
+Trycycler cluster command (above) created a newick file (assembly/nanopore_illumina_hybrid/trycycler/cluster/contigs.newick).
+
+```
+figtree nanopore_illumina_hybrid/trycycler/cluster/contigs.newick
+```
+
+See the phylogenetic tree. You need to make a __*manual decision*__ at this point.\
+- Find a cluster of contigs that most likely represents the complete chromosome. It has to be the longest among the clusters. You may expect to see fragmented versions (clusters with shorter contigs) branching nearby the cluster of longest (presumably the correct) contigs. The lengths of these fragmented contigs likely add up to the longest one, implying that they were created because of breaks introduced by some unresolved repeats within the chromosome. Let's ignore those fragmented contigs clusters.
+- Open a text editor and write down the clusters (cluster_1, cluster_2, ...) one line each. 
+- Label the (putatively) correct chromosome cluster 'chromosome', shorter clusters that resemble the chromosome 'mask'
+ \
+- Now inspect other parts of the tree,  searching for a robust cluster (if exist) that represent plasmids.
+- Find the largest & tight cluster of contigs that are very close to each other. Label it 'plasmid'
+- In the best case scenario, there will be no remaining poorly clustered clusters, each containing only a few contigs or displaying long branches within the cluster.
+- Based on subjective judgement, assign additional 'plasmid' label to whatever that seems to represent an additional plasmid.
+
+Result is something like this in the text editor:
+> cluster_1    chromosome\
+> cluster_2    mask\
+> cluster_3    mask\
+> cluster_4    plasmid\
+> cluster_5    mask\
+> cluster_6    plasmid\
+> cluster_7    mask\
+> cluster_8    mask
+
+
 
 ### Nanopore + Illumina hybrid assembly
 
