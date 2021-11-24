@@ -235,13 +235,16 @@ vi run_flye_all_subsample.sh
 
 Text editor will open, then you type the key `i` to enable typing mode.\
 Write lines like these:
->#!/bin/bash\
->for SUBSET_NUM in 01 02 03 04 05 06 07 08 09 10 11 12\
->do\
->    flye --nano-raw assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_${SUBSET_NUM}.fastq --threads 1 --out-dir assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}\
->    cp assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}/assembly.fasta assembly/nanopore_illumina_hybrid/trycycler/assemblies/assembly_${SUBSET_NUM}.fasta\
->    rm -rf assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}\
->done
+
+```
+#!/bin/bash
+for SUBSET_NUM in 01 02 03 04 05 06 07 08 09 10 11 12
+do
+    flye --nano-raw assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_${SUBSET_NUM}.fastq --threads 1 --out-dir assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}
+    cp assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}/assembly.fasta assembly/nanopore_illumina_hybrid/trycycler/assemblies/assembly_${SUBSET_NUM}.fasta
+    rm -rf assembly/nanopore_illumina_hybrid/trycycler/assemblies/${SUBSET_NUM}
+done
+```
 
 If you've writen all, then say type `esc` key to exit typing mode.\
 Then type `:` key to enable command typing.\
