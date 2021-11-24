@@ -404,6 +404,17 @@ sudo cp Bandage /usr/local/bin/
 ```
 
 
+## FigTree, a tool for visualization of phylogenetic tree.
+
+tool website: http://evomics.org/resources/software/molecular-evolution-software/figtree/
+
+Install system wide.
+
+```
+sudo apt-get install figtree
+```
+
+
 # Tools for basic, general-purpose gene annotation
 
 ## Prokka, a tool combining the identification of protein-coding genes, rRNAs, tRNAs, etc. plus (optionally) functional annotations
