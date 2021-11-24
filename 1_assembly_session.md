@@ -261,6 +261,11 @@ The screen output messages that flye spit out will be writen into the file `run_
 This will take a day or so.\
 To speed up this step, the only way is to run all flye jobs in parallel on a high performance server.
 
+Once flye has finished assembling all 12 subsets, cluster the resulting contigs - thus the contigs representing the same original replicon (i.e. chromosom, plasmid) will be grouped together.
+
+```
+trycycler cluster --assemblies assembly/nanopore_illumina_hybrid/trycycler/assemblies/*.fasta --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --out_dir assembly/nanopore_illumina_hybrid/trycycler/cluster
+```
 
 
 ### Nanopore + Illumina hybrid assembly
