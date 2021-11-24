@@ -274,12 +274,15 @@ any2fasta assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_
 
 For batch run, open `vi run_mm_all_samples.sh` and type the following lines,
 
-> mkdir assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm\
-> for SUBSAM in 01 02 03 04 05 06 07 08 09 10 11 12\
-> do\
->         miniasm_and_minipolish.sh assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_${SUBSAM}.fastq 1 > assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_${SUBSAM}.gfa\
->         any2fasta assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_${SUBSAM}.gfa > assembly/nanopore_illumina_hybrid/trycycler/assemblies/mm_assembly_${SUBSAM}.fasta\
-> done
+```
+#!/bin/bash
+mkdir assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm
+for SUBSAM in 01 02 03 04 05 06 07 08 09 10 11 12
+do
+    miniasm_and_minipolish.sh assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_${SUBSAM}.fastq 1 > assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_${SUBSAM}.gfa
+    any2fasta assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_${SUBSAM}.gfa > assembly/nanopore_illumina_hybrid/trycycler/assemblies/mm_assembly_${SUBSAM}.fasta
+done
+```
 
 Then
 ```
