@@ -261,7 +261,37 @@ The screen output messages that flye spit out will be writen into the file `run_
 This will take a day or so.\
 To speed up this step, the only way is to run all flye jobs in parallel on a high performance server.
 
-Once flye has finished assembling all 12 subsets, cluster the resulting contigs - thus the contigs representing the same original replicon (i.e. chromosom, plasmid) will be grouped together.
+Once flye has finished assembling all 12 subsets, next step is clustering similar contigs across all assemblies - hope that the contigs representing the same original replicon (i.e. chromosom, plasmid) will be grouped together.
+
+Optionally, you can create additional assemblies using _miniasm + minipolish_ pipeline.\
+Single assembly job can be done with the command
+
+```
+mkdir assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm
+miniasm_and_minipolish.sh assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_${SUBSAM}.fastq 1 > assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_${SUBSAM}.gfa
+any2fasta assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_${SUBSAM}.gfa > assembly/nanopore_illumina_hybrid/trycycler/assemblies/mm_assembly_${SUBSAM}.fasta
+```
+
+For batch run, open `vi run_mm_all_samples.sh` and type the following lines,
+
+> mkdir assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm\
+> for SUBSAM in 01 02 03 04 05 06 07 08 09 10 11 12\
+> do\
+>         miniasm_and_minipolish.sh assembly/nanopore_illumina_hybrid/trycycler/read_subsets/sample_${SUBSAM}.fastq 1 > assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_${SUBSAM}.gfa\
+>         any2fasta assembly/nanopore_illumina_hybrid/trycycler/assemblies_mm/mm_assembly_${SUBSAM}.gfa > assembly/nanopore_illumina_hybrid/trycycler/assemblies/mm_assembly_${SUBSAM}.fasta\
+> done
+
+Then
+```
+chmod 755 run_mm_all_samples.sh
+./run_mm_all_samples.sh
+(OR)
+nohup ./run_mm_all_samples.sh > run_mm_all_samples.log &
+```
+If you run the above script, 12 more assemblies will be added to the folder `assembly/nanopore_illumina_hybrid/trycycler/assemblies`
+
+
+Now, run `trycycler cluster` command.
 
 ```
 trycycler cluster --assemblies assembly/nanopore_illumina_hybrid/trycycler/assemblies/*.fasta --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --out_dir assembly/nanopore_illumina_hybrid/trycycler/cluster
@@ -295,6 +325,23 @@ Result is something like this in the text editor:
 > cluster_8    mask
 
 
+For the clusters that you picked as 'chromosome' or 'plasmid', run the `trycycler reconcile` command. (skip the clusters that you 'mask'ed)
+
+```
+trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001\
+trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_004\
+trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_006
+```
+
+`reconcile` command can end up failure. If it fails, check the messages printed in the screen, find out which contig in the cluster behaved abnormally. Change the file name of that specific contig and re-run the `reconcile` command.\
+For example, if C_contig_1 in cluster_001 behaved strangely, you can exclude that contig from the reconciliation by:
+
+```
+mv assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001/1_contigs/C_contig_1.fasta assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001/1_contigs/C_contig_1.fasta.bad\
+trycycler reconcile --reads qc_read/SRR14534401.mean_phred_80_len_1k.fastq --cluster_dir assembly/nanopore_illumina_hybrid/trycycler/cluster/cluster_001
+```
+
+
 
 ### Nanopore + Illumina hybrid assembly
 
@@ -309,6 +356,16 @@ conda activate unicycler_py35
 unicycler -1 qc_read/SRR14534402_1.fastq -2 qc_read/SRR14534402_2.fastq -l qc_read/SRR14534401.mean_phred_80_len_1k.fastq -o assembly/nanopore_illumina_hybrid/unicycler --spades_path /home/osboxes/genomics_tutorial/miniconda3/envs/unicycler_py35/bin/spades.py
 ```
 
+**(2) Flye assembly followed by polishing using both nanopore and illumina reads
+
+
+```
+conda activate trycycler
+mkdir assembly/nanopore_illumina_hybrid/flye_polish
+flye --nano-raw qc_read/SRR14534401.mean_phred_80_len_1k.fastq --threads 8 --out-dir assembly/nanopore_illumina_hybrid/flye_polish/flye_out
+medaka 
+polypolish 
+```
 
 
 
