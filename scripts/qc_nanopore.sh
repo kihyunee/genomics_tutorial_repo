@@ -15,7 +15,7 @@ do
 		echo "It's non-PE, I suppose it's nanopore"
 		FQTN="${FQFN##*/}"
 		FQID="${FQTN%.fastq}"
-		/data0/home/kihyunee/installations/Filtlong/bin/filtlong --min_length 1000 --min_mean_q 80 ${FQFN} > qc_read/${FQID}.mean_phred_80_len_1k.fastq
-		/data0/home/kihyunee/installations/Filtlong/bin/filtlong --min_length 1000 --min_mean_q 88 ${FQFN} > qc_read/${FQID}.mean_phred_90_len_1k.fastq
+		filtlong --min_length 1000 --min_mean_q 80 ${FQFN} > qc_read/${FQID}.mean_phred_80_len_1k.fastq
+		filtlong --min_length 1000 --min_mean_q 88 ${FQFN} > qc_read/${FQID}.mean_phred_90_len_1k.fastq
 	fi
 done
