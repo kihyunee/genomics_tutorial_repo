@@ -5,7 +5,7 @@ do
 	RUNACC="${line%	*}"
 	RUNNAME="${line#*	}"
 	
-	/data0/home/kihyunee/installations/kingfisher-download/bin/kingfisher get -r ${RUNACC} -m ena-ascp ena-ftp aws-http prefetch
+	kingfisher get -r ${RUNACC} -m ena-ascp ena-ftp aws-http prefetch
 	
 	if [ -f ${RUNACC}.fastq.gz ]; then
 		gzip -d ${RUNACC}.fastq.gz
