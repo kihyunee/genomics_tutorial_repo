@@ -1,3 +1,85 @@
+# Assembly session example dataset
+
+### Citation 
+- __Successive emergence of ceftazidimeavibactam resistance through distinct genomic adaptations in blaKPC-2-harboring Klebsiella pneumoniae sequence type 307 isolates
+- Antimicrob Agents Chemother 62:e02101-17, https://doi.org/10.1128/AAC.02101-17
+- Giddins MJ, Macesic N, Annavajhala MK, Stump S, Khan S, McConville TH, Mehta M, Gomez-Simmonds A, Uhlemann A-C.
+- Correspondence: Department of Medicine, Division of Infectious Diseases, Columbia University Medical Center, New York, USA
+
+### Original WGS data description
+- Target pathogens: ST307 Klebsiella pneumoniae isolates from a single patient who were receiving ceftazidime-avibactam treatment.
+- * seven culture isolates obtained from blood, pancreatic fluid, BAL and tracheal aspirate
+- * antibiotic resistance phenotypes of the isolates determined for CAZ-AVI and meropenem
+- Sequencing platform: Illumina MiSeq applied to all isolates; ONT MinION applied to three isolates
+- N. isoaltes sequenced: 7
+
+### Dataset links
+__NCBI BioProject__ accession numbers
+- PRJNA420753 --> [PRJNA420753 page](https://www.ncbi.nlm.nih.gov/bioproject/420753)
+
+__Raw reads__ runinfo table in csv format
+- [Runinfo csv file for 7 MiSeq + 3 MinION raw reads under PRJNA420753](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Giddin_2018/PRJNA420753_SraRunInfo.csv)
+
+__Genome assemblies__ accession numbers for three hybrid assemblies are available but we're not going to use them.
+
+__NGS runs mapped to metadata__ metadata 
+- Phenotypic resistance profiles and isolation source of each isolate is presented in [Table 1 of the original manuscript](https://journals.asm.org/doi/10.1128/AAC.02101-17#T1)
+- Sadly the Table 1 is provided as an _image_ so you have to parse the information manually, I did it: [Isolate metadata table in tsv format](https://github.com/kihyunee/genomics_tutorial/blob/main/datasets/Giddin_2018/Giddins_2018_isolate_metadata.tsv)
+
+
+### Steps to collect raw NGS data
+
+__(1) Find the bioproject accession number in the paper, Go to the NCBI website, Download SRA runinfo csv file__ 
+- It's PRJNA420753
+- NCBI page for PRJNA420753 is https://www.ncbi.nlm.nih.gov/bioproject/420753
+- Click the link to the "SRA Experiments 10"
+- Send to > File > RunInfo 
+- Move the downloaded csv file to appropriate location.
+- Open the csv file in excel, or use the following commands to inspect the NGS run contents
+
+```
+cut -d ',' -f1,12,20,29,30 SraRunInfo.csv
+
+# See? OK.
+
+cut -d ',' -f1,12,20,29,30 SraRunInfo.csv | tr "," "\t" > minimal_runinfo.tsv
+```
+
+Let's ignore the four isolates sequenced only using MiSeq.\
+Focus on the three isolates KP1766, KP1768, NR5632.
+Let's make a tab-delimited file where you have run accession in column 1 (like SRR6348588), library name in column 2 (like KP1766_Nanopore).
+
+```
+grep "KP1766" minimal_runinfo.tsv | cut -f1,2 > run_isolate_ngs.tab
+grep "KP1768" minimal_runinfo.tsv | cut -f1,2 >> run_isolate_ngs.tab
+grep "NR5632" minimal_runinfo.tsv | cut -f1,2 >> run_isolate_ngs.tab
+```
+
+Let's download the fastq files now.
+
+```
+cd ../
+mkdir raw_read
+mkdir qc_read
+cd raw_read/
+conda activate kingfisher
+
+# you can run 6 commands
+kingfisher get -r SRR6348588 -m ena-ascp aws-http prefetch
+kingfisher get -r SRR6348588cat -m ena-ascp aws-http prefetch
+kingfisher get -r SRR6348588 -m ena-ascp aws-http prefetch
+kingfisher get -r SRR6348588 -m ena-ascp aws-http prefetch
+kingfisher get -r SRR6348588 -m ena-ascp aws-http prefetch
+kingfisher get -r SRR6348588 -m ena-ascp aws-http prefetch
+
+# and modify the file names for convenience
+mv 
+
+# or, creatively, compose a shell script and download all 6 runs.
+
+```
+
+
 
 # Individual dataset description
 
