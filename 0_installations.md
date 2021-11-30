@@ -711,7 +711,7 @@ virsorter setup -d db -j 2
 ```
 
 
-## PhaageBoost for machine learning prediction of prophage region in assembled genomes
+## (failed) PhaageBoost for machine learning prediction of prophage region in assembled genomes
 PhageBoost is extremely rapid and light tool that can identify the prophage regions even when there is no homology with known phage sequences.\
 It utilizes the difference in subtle protein signatures between the DNAs of bacterial and phage origin.\
 Install PhageBoost in the conda environment _phageboost_
@@ -724,6 +724,61 @@ PhageBoost -h
 
 
 ## ProphET for identification of prophage region in assembled genomes
+### dependency = legacy blast
+```
+mkdir ~/genomics_tutorial/installation/blast_legacy
+cd ~/genomics_tutorial/installation/blast_legacy
+wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/legacy.NOTSUPPORTED/2.2.26/blast-2.2.26-x64-linux.tar.gz
+tar -xvzf blast-2.2.26-x64-linux.tar.gz
+cd blast-2.2.26/bin
+# PATH=<path_to_blastall/bin>:$PATH
+echo $PATH
+blastall -h
+formatdb -h
+```
+### dependency = emboss
+```
+mkdir ~/genomics_tutorial/installation/emboss
+cd ~/genomics_tutorial/installation/emboss
+wget ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz
+gunzip EMBOSS-6.6.0.tar.gz
+tar xvf EMBOSS-6.6.0.tar
+./configure
+make
+```
+### dependency = bedtools
+```
+mkdir ~/genomics_tutorial/installation/bedtools_2.28.0
+cd ~/genomics_tutorial/installation/bedtools_2.28.0
+wget https://github.com/arq5x/bedtools2/releases/download/v2.28.0/bedtools-2.28.0.tar.gz
+tar -xzf bedtools-2.28.0.tar.gz
+```
+### dependency = perl modules
+```
+perl -MCPAN -e shell
+perl -MCPAN -e 'install Bio::Perl'
+perl -MCPAN -e 'install SVG'
+perl -MCPAN -e 'install GD'
+perl -MCPAN -e 'install GD::SVG'
+perl -MCPAN -e 'install Bio::Graphics'
+perl -MCPAN -e 'install LWP::Simple'
+perl -MCPAN -e 'install XML::Simple'
+perl -MCPAN -e 'install Mozilla::CA'
+perl -MCPAN -e 'install LWP::Protocol::https'
+```
+### finally, prophet itself
+```
+cd ~/genomics_tutorial
+git clone https://github.com/jaumlrc/ProphET.git
+cd ProphET/
+# check all dependencies - blastall, formatdb, emboss, bedtools, are in system path
+./INSTALL.pl
+```
+Test
+```
+./ProphET_standalone.pl -h
+# ./ProphET_standalone.pl --fasta {IN_FASTA} --gff_in {IN_GFF} --outdir {OUT_DIR}
+```
 
 
 # Tools for comparative evolutionary analyses
