@@ -710,10 +710,20 @@ cd ~/genomics_tutorial/database/virsorter2_db
 virsorter setup -d db -j 2
 ```
 
-## ProphET for identification of prophage region in assembled genomes
-
 
 ## PhaageBoost for machine learning prediction of prophage region in assembled genomes
+PhageBoost is extremely rapid and light tool that can identify the prophage regions even when there is no homology with known phage sequences.\
+It utilizes the difference in subtle protein signatures between the DNAs of bacterial and phage origin.\
+Install PhageBoost in the conda environment _phageboost_
+```
+conda create -y -n phageboost python=3.7
+conda activate phageboost
+pip install PhageBoost
+PhageBoost -h
+```
+
+
+## ProphET for identification of prophage region in assembled genomes
 
 
 # Tools for comparative evolutionary analyses
