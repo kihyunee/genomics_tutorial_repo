@@ -431,6 +431,19 @@ conda install prokka
 ```
 
 
+## Prodigal, a tool that identifies protine-coding genes 
+
+Install in system-wide path.
+
+```
+mkdir ~/genomics_tutorial/installation/prodigal
+cd ~/genomics_tutorial/installation/prodigal
+wget https://github.com/hyattpd/Prodigal/releases/download/v2.6.3/prodigal.linux
+chmod +x prodigal.linux
+sudo cp prodigal.linux /usr/local/bin/prodigal
+```
+
+
 # Tools for AMR gene annotation
 
 ## Abricate, a tool providing uniform annotation using various public ARG DBs, notably using nucleotide sequences for both the references and the query assembly.
