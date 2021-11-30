@@ -457,8 +457,28 @@ conda activate checkm
 conda install numpy matplotlib pysam
 # conda install hmmer prodigal pplacer
 pip3 install checkm-genome
+
+# now CheckM is installed but you also need to set up the CheckM reference database
+mkdir ~/genomics_tutorial/database/checkm_reference
+cd ~/genomics_tutorial/database/checkm_reference
+wget https://data.ace.uq.edu.au/public/CheckM_databases/checkm_data_2015_01_16.tar.gz
+tar -xzf checkm_data_2015_01_16.tar.gz
+
+checkm data setRoot /home/osboxes/genomics_tutorial/database/checkm_reference/
 ```
 
+## pyani, a tool that calculates ANI (average nucleotide identity) between input genomes
+
+We'll use this tool to check/confirm that the genome assemblies indeed represent the strains in the species that you thought they are from.\
+Maybe naive, but if ANI against the reference/type strain genome > 95% then you can think that you have no problem.\
+In case of lower ANI and/or significantly low ANI coverage (like < 20-30%) be worry about the actual identity of your WGS strains.
+
+Let's install it in the _base_ conda environment
+
+```
+conda activate base
+conda install --yes pyani
+```
 
 
 # Tools for basic, general-purpose gene annotation
