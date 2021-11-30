@@ -74,3 +74,18 @@ Now, run the python script provided in the pyani package, to calculate ANIm amon
 ```
 average_nucleotide_identity.py -i ani_input -o ani_output
 ```
+
+It can take a while.\
+When _pyani_ is finished go to the output folder and check the results.
+```
+cd ani_output/
+```
+There will be five output files, all of which are N X N square matrix of the values computed for the pairs of input genomes.\
+Check the ANI identity (0 - 1) and alignment coverage (0 - 1) of 'KP1766' against the other genomes:\
+```
+QCOL=$(grep -n "KP1766" ANIm_percentage_identity.tab | sed '1d' | cut -f1 | cut -d ':' -f1)
+cut -f1,${QCOL} ANIm_percentage_identity.tab > KP1766.ANI_identity.tab
+cut -f1,${QCOL} ANIm_alignment_coverage.tab > KP1766.ANI_coverage.tab
+```
+
+
