@@ -723,8 +723,11 @@ PhageBoost -h
 ```
 
 
-## ProphET for identification of prophage region in assembled genomes
+## (failed) ProphET for identification of prophage region in assembled genomes
 ### dependency = legacy blast
+
+**Skip this part because you've already installed legacy blast 2.2.26 in conda base environment while installing one of the above softwares**
+
 ```
 mkdir ~/genomics_tutorial/installation/blast_legacy
 cd ~/genomics_tutorial/installation/blast_legacy
@@ -743,8 +746,11 @@ cd ~/genomics_tutorial/installation/emboss
 wget ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz
 gunzip EMBOSS-6.6.0.tar.gz
 tar xvf EMBOSS-6.6.0.tar
+cd EMBOSS-6.6.0
 ./configure
 make
+cd emboss/
+PATH=$(pwd):$PATH
 ```
 ### dependency = bedtools
 ```
@@ -752,6 +758,10 @@ mkdir ~/genomics_tutorial/installation/bedtools_2.28.0
 cd ~/genomics_tutorial/installation/bedtools_2.28.0
 wget https://github.com/arq5x/bedtools2/releases/download/v2.28.0/bedtools-2.28.0.tar.gz
 tar -xzf bedtools-2.28.0.tar.gz
+cd bedtools2
+make
+cd bin
+PATH=$(pwd):$PATH
 ```
 ### dependency = perl modules
 ```
@@ -768,7 +778,7 @@ perl -MCPAN -e 'install LWP::Protocol::https'
 ```
 ### finally, prophet itself
 ```
-cd ~/genomics_tutorial
+cd ~/genomics_tutorial/installation/
 git clone https://github.com/jaumlrc/ProphET.git
 cd ProphET/
 # check all dependencies - blastall, formatdb, emboss, bedtools, are in system path
