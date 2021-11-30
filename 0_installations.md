@@ -699,6 +699,22 @@ make
 sudo cp hattci.out /usr/local/bin/
 ```
 
+## VirSorter2 for searching for viral (prophage) sequences within the assembled genomes
+Install virsorter2 in the conda environment _virsorter2_\
+and download the reference database using `virsorter setup` command.
+```
+conda create -n virsorter2 -c conda-forge -c bioconda virsorter=2
+conda activate virsorter2
+mkdir ~/genomics_tutorial/database/virsorter2_db
+cd ~/genomics_tutorial/database/virsorter2_db
+virsorter setup -d db -j 2
+```
+
+## ProphET for identification of prophage region in assembled genomes
+
+
+## PhaageBoost for machine learning prediction of prophage region in assembled genomes
+
 
 # Tools for comparative evolutionary analyses
 
