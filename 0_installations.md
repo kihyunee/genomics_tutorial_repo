@@ -415,6 +415,52 @@ sudo apt-get install figtree
 ```
 
 
+# Tools for bacterial genome QC
+
+
+## Prodigal, a tool that identifies protine-coding genes 
+
+Install in system-wide path.\
+- This is not a QC tool but a genome annotation tool.
+- You don't need a separate _prodigal_ installation as long as you have _prokka_ (later will be installed)
+- But a system-wide prodigal installation is required as a dendendency of _CheckM_ (the next-next one).
+
+```
+mkdir ~/genomics_tutorial/installation/prodigal
+cd ~/genomics_tutorial/installation/prodigal
+wget https://github.com/hyattpd/Prodigal/releases/download/v2.6.3/prodigal.linux
+chmod +x prodigal.linux
+sudo cp prodigal.linux /usr/local/bin/prodigal
+```
+
+## pplacer, a tool that find the right placement of the input sequence in the input phylogenetic tree
+
+This is installed only because it's a dependency of _CheckM_ (the next one)
+
+```
+mkdir ~/genomics_tutorial/installation/pplacer
+cd ~/genomics_tutorial/installation/pplacer
+wget https://github.com/matsen/pplacer/releases/download/v1.1.alpha17/pplacer-Linux-v1.1.alpha17.zip
+unzip pplacer-Linux-v1.1.alpha17.zip
+cd pplacer-Linux-v1.1.alpha17
+echo "export PATH=\$PATH:$(pwd)" >> ~/.bashrc
+source ~/.bashrc
+```
+
+## CheckM, scoring the completeness and contamination of bacterial genome assemblies
+
+Install _CheckM_ in the conda environment _checkm_
+
+```
+conda create -n checkm python=3.9
+conda activate checkm
+conda install numpy matplotlib pysam
+# conda install hmmer prodigal pplacer
+pip3 install checkm-genome
+```
+
+
+
 # Tools for basic, general-purpose gene annotation
 
 ## Prokka, a tool combining the identification of protein-coding genes, rRNAs, tRNAs, etc. plus (optionally) functional annotations
@@ -428,19 +474,6 @@ conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels conda-forge
 conda install prokka
-```
-
-
-## Prodigal, a tool that identifies protine-coding genes 
-
-Install in system-wide path.
-
-```
-mkdir ~/genomics_tutorial/installation/prodigal
-cd ~/genomics_tutorial/installation/prodigal
-wget https://github.com/hyattpd/Prodigal/releases/download/v2.6.3/prodigal.linux
-chmod +x prodigal.linux
-sudo cp prodigal.linux /usr/local/bin/prodigal
 ```
 
 
