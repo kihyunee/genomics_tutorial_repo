@@ -708,6 +708,11 @@ conda activate virsorter2
 mkdir ~/genomics_tutorial/database/virsorter2_db
 cd ~/genomics_tutorial/database/virsorter2_db
 virsorter setup -d db -j 2
+
+# if virsorter setup command is not working well (or taking too long), alternatively,
+wget -O db.tgz osf.io/v46sc/download
+tar -xzf db.tgz
+virsorter config --init-source --db-dir=./db
 ```
 
 
@@ -794,7 +799,18 @@ Test
 # Tools for comparative evolutionary analyses
 
 ### mlst for MLST assignment using PubMLST schemes
+Tool website: https://github.com/tseemann/mlst
 
+This tool uses the MLST schemes provided in the PubMLST repository.\
+Depending on the species you are investigating, there might be an applicable MLST scheme.\
+_mlst_ by default comes with certain - slightly outdated - version of PubMLST allele/ST profile databases during the initial installation.\
+You may want to update the database as time passes > 1 year to catch up with the recently created STs.\
+Install in the _base_ conda environment.
+
+```
+conda activate base
+conda install mlst
+```
 
 ### Roary for pangenome within species
 
