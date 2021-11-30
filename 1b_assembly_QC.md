@@ -38,36 +38,19 @@ The downloaded genome assembly fasta files are located at 'genome_assembly/{GCF_
 
 Later you'll want to have a mapping between {GCF_ACCESSION} and the organisms's taxonomic name (such as 'Klebsiella oxytoca').\
 Let's grep that information from the sequence header lines.\
-Open a vi editor and write a script like this.
-`vi collect_header_info.sh`
+There is a script called `collect_header_info.sh` in `~/genomics_tutorial/script` directory.\
+Use it to collect organisms information per accession from the fasta header line.
 
 ```
-#!/bin/bash
-output="accession_2_organism.tab"
-if [ -f ${output} ]; then
-  rm ${output}
-fi
-for fasta in genome_assembly/*.fasta
-do
-  fasta_fn="${fasta##*/}"
-  accession="${fasta_fn%.fasta}"
-  header_sample="$(head -n1 ${fasta})"
-  header_nonacc="${header_sample#* }"
-  header_org="${header_nonacc%%,*}"
-  header_org="${header_org% chromosome*}"
-  header_org="${header_org% plasmid*}"
-  echo "${accession}  ${header_org}"
-done
+/home/osboxes/genomics_tutorial/script/collect_header_info.sh
 ```
 
-```
-chmod 755 collect_header_info.sh
-./collect_header_info.sh
-```
+Above action will create a file `accession_2_organism.tab`
+
 
 ### Now calculate ANI
-First place all fasta files of your genome assemblies together in a same directory.\
-You don't have to create loads of new files, but you can simply create symbolic links.
+To run pyani you first have to place the fasta files of the genomes to be compared together in a same directory.\
+You don't have to create loads of new files (which burdens disk space), but you can simply create symbolic links.
 
 ```
 cd ..
@@ -80,14 +63,14 @@ ln -s /home/osboxes/genomics_tutorial/assembly_session_test/K_pneumoniae_ST307/a
 ln -s /home/osboxes/genomics_tutorial/assembly_session_test/K_pneumoniae_ST307/assembly/NR5632/hybrid/unicycler/assembly.fasta ani_input/NR5632_hybrid.fasta
 ```
 
-`vi link_type_strain_genomes.sh`
+Also create symbolic links to the type strain genomes.
+Use the provided script `link_type_strain_genomes.sh` in `~/genomics_tutorial/script` directory.\
 
 ```
-#!/bin/bash
-for fasta in type_strain_genomes/genome_assembly/*.fasta
-do
-  fasta_fn="${fasta##*/}"
-  accession="${fasta_fn%.fasta}"
-  ln -s ${fasta} ani_input/${accession}.fasta
-done
+/home/osboxes/genomics_tutorial/script/link_type_strain_genomes.sh
+```
+
+Now, run the python script provided in the pyani package, to calculate ANIm amongst all the genomes in the `ani_input` directory.
+```
+average_nucleotide_identity.py -i ani_input -o ani_output
 ```
