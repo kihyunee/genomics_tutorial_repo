@@ -1,4 +1,9 @@
 #!/bin/bash
+
+if [ ! -d qc_read ]; then
+	mkdir qc_read
+fi
+
 for FQFN in raw_read/*.fastq
 do
 	echo "${FQFN}"

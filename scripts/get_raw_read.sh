@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# positional argument input file
+#	$1 = a tab file, col 1 SRA accession, col 2 customized naming for the SRA run
+
+# requirement for conda environment
+#	should be run in kingfisher environment
+
+if [ ! -d raw_read ]; then
+	mkdir raw_read
+fi
+
 while read line
 do
 	RUNACC="${line%	*}"
@@ -31,4 +41,4 @@ do
 		mv ${RUNACC}_2.fastq raw_read/${RUNNAME}_2.fastq
 	fi
 
-done < metadata/run_isolate_ngs.tab
+done < $1

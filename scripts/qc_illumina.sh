@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d qc_read ]; then
+	mkdir qc_read
+fi
+
 for FWFQ in raw_read/*_1.fastq
 do
 
