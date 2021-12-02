@@ -59,12 +59,36 @@ conda activate amrfinder
 amrfinder -h
 ```
 
-Run AMRFinder on KP1766.
+Run AMRFinder on KP1766, and check how the output look like.
 ```
 amrfinder --protein prokka_output/KP1766/KP1766.faa --name KP1766 --output amr_finder/KP1766.amrfinder.tsv --threads 1
+
+cat amr_finder/KP1766.amrfinder.tsv
 ```
 
 Run AMRFinder on all input genomes using a script.
 ```
 run_amrfinder_on_input_proteins.sh prokka_output amr_finder
+```
+
+# RGI by CARD
+
+Activate rgi environment. See help messages.
+
+```
+mkdir card_rgi
+conda activate rgi
+rgi -h
+```
+
+Run RGI on KP1766, and check how the output look like.
+```
+rgi main -i prokka_output/KP1766/KP1766.faa -t protein -n 1 -a BLAST -o card_rgi/KP1766.rgi.tsv
+
+cat card_rgi/KP1766.rgi.tsv
+```
+
+Run RGI on all input genomes using a script.
+```
+run_rgi_on_input_proteins.sh prokka_output card_rgi
 ```
