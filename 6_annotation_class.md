@@ -120,7 +120,7 @@ Run ISEScan on KP1766
 isescan.py --seqfile input_assembly/KP1766.fasta --output isescan_result/KP1766.isescan
 
 # check output
-vi isescan_result/KP1766.isescan
+vi isescan_result/KP1766.isescan/input_assembly/KP1766.fasta.tsv
 ```
 
 # Integron_Finder for integrons
@@ -132,7 +132,10 @@ integron_finder -h
 
 Run Integron_Finder on KP1766
 ```
-integron_finder 
+integron_finder --outdir integron_result/KP1766 input_assembly/KP1766.fasta
+
+# check output
+
 ```
 
 # Platon for plasmids
@@ -140,6 +143,7 @@ integron_finder
 mkdir platon_result
 conda activate platon
 ```
+
 Run Platon on KP1766
 
 
@@ -148,6 +152,7 @@ Run Platon on KP1766
 mkdir plasmidfinder_result
 conda activate plasmidfinder
 ```
+
 Run PlasmidFinder on KP1766
 
 
