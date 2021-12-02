@@ -52,6 +52,9 @@ The script will create each strain's own directory under `./prokka_output` direc
 ./prokka_output/{STRAIN_ID_OR_ACCESSION}/{STRAIN_ID_OR_ACCESSION}.gff
 ```
 
+
+# AMR annotation
+
 # AMRFinder
 ```
 mkdir amr_finder
@@ -92,3 +95,39 @@ Run RGI on all input genomes using a script.
 ```
 run_rgi_on_input_proteins.sh prokka_output card_rgi
 ```
+
+
+# MGE identification
+
+# ISEScan for IS elements
+```
+mkdir isescan_result
+conda activate isescan
+```
+Run ISEScan on KP1766
+
+
+# Integron_Finder for integrons
+```
+mkdir integron_result
+conda activate integron_finder
+```
+Run Integron_Finder on KP1766
+
+
+# Platon for plasmids
+```
+mkdir platon_result
+conda activate platon
+```
+Run Platon on KP1766
+
+
+# PlasmidFinder for plasmids
+```
+mkdir plasmidfinder_result
+conda activate plasmidfinder
+```
+Run PlasmidFinder on KP1766
+
+
