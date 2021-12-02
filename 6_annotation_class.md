@@ -67,6 +67,9 @@ Run AMRFinder on KP1766, and check how the output look like.
 amrfinder --protein prokka_output/KP1766/KP1766.faa --name KP1766 --output amr_finder/KP1766.amrfinder.tsv --threads 1
 
 cat amr_finder/KP1766.amrfinder.tsv
+
+# more concisely
+cut -f2,3,4,8,9 amr_finder/KP1766.amrfinder.tsv
 ```
 
 Run AMRFinder on all input genomes using a script.
@@ -88,7 +91,13 @@ Run RGI on KP1766, and check how the output look like.
 ```
 rgi main -i prokka_output/KP1766/KP1766.faa -t protein -n 1 -a BLAST -o card_rgi/KP1766.rgi.tsv
 
-cat card_rgi/KP1766.rgi.tsv
+cat card_rgi/KP1766.rgi.tsv.txt
+```
+
+Each RGI output lines are long. Let's see it more concisely.
+```
+head -n2 card_rgi/KP1766.rgi.tsv.txt
+cut -f1,9,12,15,16,17 card_rgi/KP1766.rgi.tsv.txt
 ```
 
 Run RGI on all input genomes using a script.
@@ -103,17 +112,28 @@ run_rgi_on_input_proteins.sh prokka_output card_rgi
 ```
 mkdir isescan_result
 conda activate isescan
+isescan.py -h
 ```
-Run ISEScan on KP1766
 
+Run ISEScan on KP1766
+```
+isescan.py --seqfile input_assembly/KP1766.fasta --output isescan_result/KP1766.isescan
+
+# check output
+vi isescan_result/KP1766.isescan
+```
 
 # Integron_Finder for integrons
 ```
 mkdir integron_result
 conda activate integron_finder
+integron_finder -h
 ```
-Run Integron_Finder on KP1766
 
+Run Integron_Finder on KP1766
+```
+integron_finder 
+```
 
 # Platon for plasmids
 ```
