@@ -45,5 +45,26 @@ run_prokka_on_input_assemblies_dir.sh prokka_output
 ```
 
 The script will create each strain's own directory under `./prokka_output` directory and place the gff, faa, ffn, ... files inside it.
+```
+# protein fasta
+./prokka_output/{STRAIN_ID_OR_ACCESSION}/{STRAIN_ID_OR_ACCESSION}.faa
+# gff
+./prokka_output/{STRAIN_ID_OR_ACCESSION}/{STRAIN_ID_OR_ACCESSION}.gff
+```
 
+# AMRFinder
+```
+mkdir amr_finder
+conda activate amrfinder
+amrfinder -h
+```
 
+Run AMRFinder on KP1766.
+```
+amrfinder --protein prokka_output/KP1766/KP1766.faa --name KP1766 --output amr_finder/KP1766.amrfinder.tsv --threads 1
+```
+
+Run AMRFinder on all input genomes using a script.
+```
+run_amrfinder_on_input_proteins.sh prokka_output amr_finder
+```
