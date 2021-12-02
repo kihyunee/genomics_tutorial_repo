@@ -88,7 +88,7 @@ unicycler -1 qc_read/KP1766_1.fastq -2 qc_read/KP1766_2.fastq -o assembly/KP1766
 
 It'll take several hours to finish.
 
-### Go back to slide and get a brief introduction to the unicycler assembler.
+### Go back to slide and get a brief introduction to the unicycler assembler. Also cover Bandage introduction now.
 
 ### Abort the process as we can't wait too long.
 
@@ -151,3 +151,4 @@ checkm taxonomy_wf --tmpdir checkm_tmp -x fasta -f checkm_output.txt --tab_table
 Inspect the scores. 
 `cat checkm_output.txt`
 
+More concisely, `cat checkm_output.txt | cut -f1,12,13,14`
