@@ -25,8 +25,6 @@
 
 ### Concatenate the alignments 
 
-### Recombination detection
-
-### Phylogenetic tree
+# Recombination detection and phylogenetic analysis
 
 
