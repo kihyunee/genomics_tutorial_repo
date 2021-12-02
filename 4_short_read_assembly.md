@@ -135,5 +135,19 @@ mv assembly/NR5632/illumina_spades/contigs.fasta final_assemblies/NR5632.il_sp.f
 mv assembly/NR5632/illumina_unicycler/assembly.fasta final_assemblies/NR5632.il_un.fasta
 ```
 
+Activate _checkm_ conda environment.\
+We want to avoid the standard CheckM workflow which involves pplacer phylogenetic placement - it consumes > 50 GB RAM and will never end.\
+Instead we'll explicitly provide the taxonomy of these genomes, and run a streamlined taxonomy workflow.\
 
+```
+conda activate checkm
+checkm taxon_list | grep "Klebsiella"
+# OK there is `Klebsiella pneumoniae` taxon
+
+mkdir checkm_tmp
+checkm taxonomy_wf --tmpdir checkm_tmp -x fasta -f checkm_output.txt --tab_table genus Klebsiella final_assemblies checkm_output
+```
+
+Inspect the scores. 
+`cat checkm_output.txt`
 
