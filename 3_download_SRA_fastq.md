@@ -1,31 +1,71 @@
-# We download three isolates / 3 illumina + 3 nanopore runs raw data from Giddins et al. paper.
-
-# You have created a tab-delimited file in a previous session
-containing 6 run accession numbers (in column 1) and library names (in column 2)
-
-That file can be found at
+# Start to work in ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
 ```
-~/PATH/TO/RUN_LIBNAME_pair.tab
+cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
 ```
 
-# Go to the giddins isolates directory - you've created it in a previous session
+The file where you wrote run accession + library name pairs can be accessed from here by:
 ```
-cd ~/genomics_tutorial/K_pneumoniae_ST307/giddins_isolates/
+ls run_info/run_library_name.tab
 ```
 
-# Download one SRA run, say 'SRR6348588' which has library name 'KP1766_Nanopore'
+# Let's download SRA fastq files into ./raw_read directory
+Note that you have to activate _kingfisher_ conda environment to use kingfisher
+
 ```
-mkdir KP1766
-mkdir KP1766/raw_read
 conda activate kingfisher
-kingfisher get -r SRR6348588 -m ena-aspera ena-ftp aws-http prefetch
-conda deactivate
+kingfisher -h
+kingfisher get -h
 ```
 
-The downloaded file(s) can be gzipped (.fastq.gz) or not (.fastq) depending on which method was used successfully by the kingfisher.\
-If it's gzipped, decompress it using `gzip -d SRR6348588*.fastq.gz`\
-Change the fastq file name to more understandable form (using library name) & put the fastq file in the '{ISOLATE_NAME}/raw_read' directory.\
-For example,
+See the help messages.\
+All you need are (1) -r ACCESSION and (2) -m DOWNLOAD METHODS
 ```
-mv SRR6348588.fastq KP1766/raw_read/KP1766_Nanopore.fastq
+kingfisher get -r SRR6348588 -m ena-ascp aws-http ena-ftp prefetch
 ```
+
+The downloaded fastq files can have one of these names, depending on (1) whether it's paired-end, (2) whether it's downloaded by ena-ftp or something else
+```
+# if single-end
+SRR6348588.fastq
+SRR6348588.fastq.gz
+SRR6348588_1.fastq
+SRR6348588_1.fastq.gz
+
+# if paired-end
+SRR6348588_1.fastq  and SRR6348588_2.fastq
+SRR6348588_1.fastq.gz and SRR6348588_2.fastq.gz
+```
+
+I want a few more operation:
+
+Decompress the gzip if the file(s) is gzipped.\
+Move the downloaded file to the `raw_read/` directory.\
+Change the filename from being ACCESSION NUMBER-based to more understandable LIBRARY NAME-based.
+
+These can be complicated but I prepared a script to deal with this task after downloading the fastq using kingfisher.
+```
+# Remove what you downloaded right before.
+rm SRR6348588*
+
+# Download using the script
+get_raw_read.sh run_info/run_library_name.tab
+```
+
+### Time flows
+
+### Cannot wait more: stop the process
+Press `Ctrl` + `C`
+
+The script was killed.
+
+Remove any files starting with `SRR` that are intermediate downloding file.
+```
+rm SRR*
+```
+
+Just move the `fastq files` that the instructor has put inside `~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/raw_read/` to the current `./raw_read` directory.
+```
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/raw_read/* ./raw_read/
+```
+
+
