@@ -4,9 +4,9 @@
 OUTDIR=$1
 
 # (1) unicycler hybrid genomes 
-ln -s /home/osboxes/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/KP1766/hybrid_unicycler/assembly.fasta ${OUTDIR}/KP1766.fasta
-ln -s /home/osboxes/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/KP1768/hybrid_unicycler/assembly.fasta ${OUTDIR}/KP1768.fasta
-ln -s /home/osboxes/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/NR5632/hybrid_unicycler/assembly.fasta ${OUTDIR}/NR5632.fasta
+ln -s /home/osboxes/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1766/hybrid_unicycler/assembly.fasta ${OUTDIR}/KP1766.fasta
+ln -s /home/osboxes/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1768/hybrid_unicycler/assembly.fasta ${OUTDIR}/KP1768.fasta
+ln -s /home/osboxes/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/NR5632/hybrid_unicycler/assembly.fasta ${OUTDIR}/NR5632.fasta
 
 
 # (2) ST307 public genomes
