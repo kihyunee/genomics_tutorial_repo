@@ -117,5 +117,3 @@ Search `Collection Year` `equals` `2016`
 
 See most strains have some value, rather than 'missing' or 'NA' for `Source`, `Collection Date`, `Location`, `Serovar`, ... 
 
-
-# PATRIC
