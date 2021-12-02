@@ -27,6 +27,19 @@ Calculate ANI using pyani
 average_nucleotide_identity.py -i ANI_input -o ANI_output
 ```
 
+This will take long time (about an hour or so).\
+You can open the second terminal window, and check how things are going on.
+```
+top
+
+# press `q` to stop seeing the process monitoring
+# count how many nucmer comparisons were finished. In total, N X (N-1) / 2 comparisons should be made.
+
+ls ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates/ANI_confirm/ANI_output/nucmer_output/ 
+ls ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates/ANI_confirm/ANI_output/nucmer_output/ | wc -l
+```
+
+
 ### Inspect the ANI values
 ```
 head ANI_output/ANIm_percentage_identity.tab | cut -f1-6
