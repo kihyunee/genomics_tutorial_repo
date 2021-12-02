@@ -48,8 +48,40 @@ A file will be downloaded, at:
 
 # Some operation in linux command line
 
-move the downloaded csv file to your directory
+Move to the ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates \
+Create a subdirectory `run_info` there\
+Go into `run_info/`
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates/
+mkdir run_info
+cd run_info
+```
 
+Move the downloaded csv file to the current directory
+```
+mv /home/osboxes/Downloads/SraRunInfo.csv .
+```
 
-# Final prepared run accession table
+Extract only the interestin (informative) columns in the csv file.
+```
+cut -d ',' -f1,12,20,29,30 SraRunInfo.csv
+# See what are extracted?
+# Save them in a new tab-delimited file
+cut -d ',' -f1,12,20,29,30 SraRunInfo.csv | tr "," "\t" > minimal_runinfo.tsv
+# Check file content
+cat minimal_runinfo.tsv
+```
+
+Focus on the 3 isolates that have both MiSeq and MinION runs. Namely `KP1766`, `KP1768`, and `NR5632`\
+And the only really interesting columns that you need to know are columns 1 (Run) and column 2 (LibraryName) of `minimal_runinfo.tsv`
+```
+grep "KP1766" minimal_runinfo.tsv | cut -f1,2 > run_library_name.tab
+grep "KP1768" minimal_runinfo.tsv | cut -f1,2 >> run_library_name.tab
+grep "NR5632" minimal_runinfo.tsv | cut -f1,2 >> run_library_name.tab
+
+# Check what you created
+cat run_library_name.tab
+```
+
+# FYI, all the above command line works can also be done in excel, more conveniently.
 
