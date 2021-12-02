@@ -125,3 +125,9 @@ Create new output with added genomes.
 ```
 checkm taxonomy_wf --tmpdir checkm_tmp -x fasta -f checkm_output_hyb.txt --tab_table genus Klebsiella final_assemblies_hyb checkm_output
 ```
+
+Inspect the scores. `cat checkm_output_hyb.txt`
+
+More concisely, `cat checkm_output_hyb.txt | cut -f1,12,13,14`
+
+
