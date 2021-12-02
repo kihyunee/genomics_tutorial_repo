@@ -65,7 +65,7 @@ medaka_consensus -i qc_read/KP1766_Nanopore.mean_phred_90_len_1k.fastq -d assemb
 
 Check polypolish command line options
 ```
-polypolish.py -h
+polypolish -h
 ```
 
 ```
