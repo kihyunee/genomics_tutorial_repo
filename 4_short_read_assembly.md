@@ -1,3 +1,25 @@
+# SRA & NCBI Downlaods 안된 것 ~/preview_genomics_tutorial ... 에서 복사해오기
+
+ST307 genomes
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/ST307_public_genomes
+cp ~/preview_genomics_tutorial/K_pneumoniae_ST307/ST307_public_genomes/genome_assembly/* genome_assembly/
+```
+
+Type strain genomes
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/Klebsiella_type_strain_genomes
+cp ~/preview_genomics_tutorial/K_pneumoniae_ST307/Klebsiella_type_strain_genomes/genome_assembly/* genome_assembly/
+```
+
+SRA raw reads for 3 isolates
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
+mkdir raw_read
+cd raw_read
+cp ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/raw_read/* .
+```
+
 # Warning
 
 The commands provided here are writen for _KP1766_ data.\
