@@ -14,6 +14,12 @@ Extracted RefSeq accession column (GCF_).
 
 As a result there is `~/preview_genomics_tutorial/K_pneumoniae_ST307/Klebsiella_type_strain_genomes/refseq_accessions.txt`
 
+Copy to the right directory
+
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/Klebsiella_type_strain_genomes
+cp ~/preview_genomics_tutorial/K_pneumoniae_ST307/Klebsiella_type_strain_genomes/refseq_accessions.txt .
+```
 
 ### 2. ST307 genome assemblies
 
