@@ -45,6 +45,48 @@ Run flye
 flye --nano-raw qc_read/KP1766_Nanopore.mean_phred_90_len_1k.fastq -o assembly/KP1766/nano_flye -i 2
 ```
 
+
+# Unicycler with both illumina and nanopore reads
+
+Activate unicycler_py35 environment.
+```
+conda activate unicycler_py35
+unicycler -h
+```
+
+Run hybrid assembly by giving `-l` (long read) input fastq to unicycler
+```
+unicycler -1 qc_read/KP1766_1.fastq -2 qc_read/KP1766_2.fastq -l qc_read/KP1766_Nanopore.mean_phred_90_len_1k.fastq -o assembly/KP1766/hybrid_unicycler --spades_path /home/osboxes/genomics_tutorial/miniconda3/envs/unicycler_py35/bin/spades.py
+```
+
+# Trycycler assembly using nanopore reads
+
+skip
+
+# COPY FLYE RESULTS
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
+mkdir assembly/KP1766/nano_flye
+mkdir assembly/KP1768/nano_flye
+mkdir assembly/NR5632/nano_flye
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1766/nano_flye/* assembly/KP1766/nano_flye/
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1768/nano_flye/* assembly/KP1768/nano_flye/
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/NR5632/nano_flye/* assembly/NR5632/nano_flye/
+```
+
+# COPY UNICYCLER RESULTS
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
+mkdir assembly/KP1766/hybrid_unicycler
+mkdir assembly/KP1768/hybrid_unicycler
+mkdir assembly/NR5632/hybrid_unicycler
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1766/hybrid_unicycler/* assembly/KP1766/hybrid_unicycler/
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1768/hybrid_unicycler/* assembly/KP1768/hybrid_unicycler/
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/NR5632/hybrid_unicycler/* assembly/NR5632/hybrid_unicycler/
+```
+
+
+
 ## Polish flye assembly using Medaka using nanopore reads
 
 To run medaka, activate _medaka_ environment.
@@ -77,45 +119,6 @@ polypolish assembly/KP1766/nano_flye/medaka/consensus.fasta assembly/KP1766/nano
 
 ```
 
-# Unicycler with both illumina and nanopore reads
-
-Activate unicycler_py35 environment.
-```
-conda activate unicycler_py35
-unicycler -h
-```
-
-Run hybrid assembly by giving `-l` (long read) input fastq to unicycler
-```
-unicycler -1 qc_read/KP1766_1.fastq -2 qc_read/KP1766_2.fastq -l qc_read/KP1766_Nanopore.mean_phred_90_len_1k.fastq -o assembly/KP1766/hybrid_unicycler --spades_path /home/osboxes/genomics_tutorial/miniconda3/envs/unicycler_py35/bin/spades.py
-```
-
-# Trycycler assembly using nanopore reads
-
-skip
-
-
-# COPY FLYE RESULTS
-```
-cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
-mkdir assembly/KP1766/nano_flye
-mkdir assembly/KP1768/nano_flye
-mkdir assembly/NR5632/nano_flye
-mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1766/nano_flye/* assembly/KP1766/nano_flye/
-mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1768/nano_flye/* assembly/KP1768/nano_flye/
-mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/NR5632/nano_flye/* assembly/NR5632/nano_flye/
-```
-
-# COPY UNICYCLER RESULTS
-```
-cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
-mkdir assembly/KP1766/hybrid_unicycler
-mkdir assembly/KP1768/hybrid_unicycler
-mkdir assembly/NR5632/hybrid_unicycler
-mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1766/hybrid_unicycler/* assembly/KP1766/hybrid_unicycler/
-mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1768/hybrid_unicycler/* assembly/KP1768/hybrid_unicycler/
-mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/NR5632/hybrid_unicycler/* assembly/NR5632/hybrid_unicycler/
-```
 
 # Bandage inspectation
 
