@@ -20,6 +20,14 @@ mkdir prokka_output
 create_symbolic_links_to_ST307_genomes.sh input_assembly
 ```
 
+# DOWNLOAD THREE ASSEMBLIES
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/AMR_annotation/input_assembly
+wget https://github.com/kihyunee/genomics_tutorial_repo/blob/main/3asm.tar.gz
+tar -xzf 3asm.tar.gz
+```
+
+
 Now run prokka on all input assemblies.
 
 ```
