@@ -133,6 +133,14 @@ mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/NR5632/il
 ```
 
 
+# Download assemblies (!)
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates/final_assemblies
+wget https://github.com/kihyunee/genomics_tutorial_repo/raw/main/final_assemblies.tar.gz
+tar -xzf final_assemblies.tar.gz
+```
+
+
 
 # 4. Bandage visualization
 
