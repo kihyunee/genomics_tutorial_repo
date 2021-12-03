@@ -24,6 +24,7 @@ create_symbolic_links_to_type_genomes.sh /home/osboxes/genomics_tutorial/K_pneum
 ### Run pyani
 Calculate ANI using pyani
 ```
+conda activate base
 average_nucleotide_identity.py -i ANI_input -o ANI_output
 ```
 
