@@ -3,12 +3,14 @@
 ST307 genomes
 ```
 cd ~/genomics_tutorial/K_pneumoniae_ST307/ST307_public_genomes
+mkdir genome_assembly
 cp ~/preview_genomics_tutorial/K_pneumoniae_ST307/ST307_public_genomes/genome_assembly/* genome_assembly/
 ```
 
 Type strain genomes
 ```
 cd ~/genomics_tutorial/K_pneumoniae_ST307/Klebsiella_type_strain_genomes
+mkdir genome_assembly
 cp ~/preview_genomics_tutorial/K_pneumoniae_ST307/Klebsiella_type_strain_genomes/genome_assembly/* genome_assembly/
 ```
 
