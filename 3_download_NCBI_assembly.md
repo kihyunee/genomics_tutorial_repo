@@ -28,6 +28,14 @@ Then exported the list of accessions as I showed above.
 As a result there is `~/preview_genomics_tutorial/K_pneumoniae_ST307/ST307_public_genomes/refseq_accessions.txt`
 
 
+Copy to the right directory
+
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/ST307_public_genomes
+cp ~/preview_genomics_tutorial/K_pneumoniae_ST307/ST307_public_genomes/refseq_accessions.txt .
+```
+
+
 
 # Downloading genome assembly sequences from the list of RefSeq accessions
 
