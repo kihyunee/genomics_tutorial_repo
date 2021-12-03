@@ -3,6 +3,7 @@
 # positional argument input file $1 = a single assembly accession (GCF_ or GCA_ )
 
 # required environment = conda base
+ASMACC=$1
 
 if [ ! -d genome_assembly ]; then
 	mkdir genome_assembly
