@@ -92,6 +92,30 @@ unicycler -1 qc_read/KP1766_1.fastq -2 qc_read/KP1766_2.fastq -l qc_read/KP1766_
 
 # Trycycler assembly using nanopore reads
 
+skip
+
+
+# COPY FLYE RESULTS
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
+mkdir assembly/KP1766/nano_flye
+mkdir assembly/KP1768/nano_flye
+mkdir assembly/NR5632/nano_flye
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1766/nano_flye/* assembly/KP1766/nano_flye/
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1768/nano_flye/* assembly/KP1768/nano_flye/
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/NR5632/nano_flye/* assembly/NR5632/nano_flye/
+```
+
+# COPY UNICYCLER RESULTS
+```
+cd ~/genomics_tutorial/K_pneumoniae_ST307/my_isolates
+mkdir assembly/KP1766/hybrid_unicycler
+mkdir assembly/KP1768/hybrid_unicycler
+mkdir assembly/NR5632/hybrid_unicycler
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1766/hybrid_unicycler/* assembly/KP1766/hybrid_unicycler/
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/KP1768/hybrid_unicycler/* assembly/KP1768/hybrid_unicycler/
+mv ~/preview_genomics_tutorial/K_pneumoniae_ST307/my_isolates/assembly/NR5632/hybrid_unicycler/* assembly/NR5632/hybrid_unicycler/
+```
 
 # Bandage inspectation
 
