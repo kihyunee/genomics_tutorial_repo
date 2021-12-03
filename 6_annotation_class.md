@@ -145,6 +145,9 @@ conda activate platon
 ```
 
 Run Platon on KP1766
+'''
+platon --db /home/osboxes/genomics_tutorial/database/platon_db/db --prefix KP1766 --output platon_result input_assembly/KP1766.fasta
+'''
 
 
 # PlasmidFinder for plasmids
