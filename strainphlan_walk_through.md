@@ -23,8 +23,8 @@ metaphlan --install --bowtie2db /data0/home/kihyunee/local_DBs/metaphlan_db
 ```
 
 # Assumptions on the file locations (you have to change this according to your file locations)
-I chosed arbitrarily four sequence runs from an arbitrary gut metagenome study for this test run.\
-Raw read sequence files (fastq.gz) were prepared here:
+I chosed arbitrarily four public sequencing runs from an arbitrarily selected gut metagenome study, as test inputs.\
+Raw read sequence files (fastq.gz) were stored at these paths:
 ```
 raw_read/SRR9092032.fastq.gz
 raw_read/SRR9092033.fastq.gz
@@ -43,9 +43,12 @@ mkdir profiles
 (2) Run metaphlan per each sample
 Several assumptions specific to my server setting made here.
 - I assume using 4 processors (multithread); If you have more or less than 4 processors available, you may adjust `--nproc` option.
-- I had an issue / error running metaphlan when I left it to use the default paths to bowtie2 and bowtie2-build executables. That's because the bowtie2 installation automatically made along with metaphlan was somehow broken..
-- So I had to feed via `bowtie2_exe` and `bowtie2_build` options the paths to the WORKING version of bowtie2 executables THAT I ALREADY HAD in my server.
+- I had an issue / error running metaphlan when I left it to use the default paths to bowtie2 and bowtie2-build executables. 
+- That's because the bowtie2 installation made within the metaphlan environment (as a dependency) was somehow broken.
+- That issue is solved when I feed the fine/working version of bowtie2 executables via `bowtie2_exe` and `bowtie2_build` options.
+- All you need know know is the paths to the WORKING version of bowtie2 executables THAT I ALREADY HAD in my server.
 - In my case that were: `/chunlab/tool/python/python2/bin/bowtie2` and `/chunlab/tool/python/python2/bin/bowtie2-build`
+- Bowtie2 is needed in many many workflows anyway. So why not install it system-wide (outside this metaphlan environment) ?
 
 ```
 metaphlan --nproc 4 --bowtie2_exe /chunlab/tool/python/python2/bin/bowtie2 --bowtie2_build /chunlab/tool/python/python2/bin/bowtie2-build --bowtie2db /data0/home/kihyunee/local_DBs/metaphlan_db --input_type fastq -s sams/SRR9092032.sam.bz2 --bowtie2out bowtie2/SRR9092032.bowtie2.bz2 -o profiles/SRR9092032_profile.tsv raw_read/SRR9092032.fastq.gz
